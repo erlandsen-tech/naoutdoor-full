@@ -41,13 +41,6 @@ const Register = () => {
     return (
         <div>
             <div id="landing-img">
-                <div class="container-3">
-                    <div class="logotext-img">
-                        <Link to="/">
-                            <img src="/img/logotext.png" class="img-fluid" alt="Ski & Recovery" />
-                        </Link>
-                    </div>
-                </div>
                 <div class="container-2">
 
                 </div>

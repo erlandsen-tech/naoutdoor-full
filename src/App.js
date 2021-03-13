@@ -14,67 +14,81 @@ import BareForIDag from './pamflets/BareForIDag';
 import ViTilfriskner from './pamflets/ViTilfriskner';
 import Slope from './Slope';
 import Contact from './Contact';
+import MyComponent from './Header';
 
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    useLocation
 } from "react-router-dom";
 
+function usePageViews() {
+    let location = window.location.pathname;
+    React.useEffect(() => {
+        console.log(location);
+    }, [location]);
+  }
 
-export default function App() {
+function App() {
+    usePageViews();
     return (
-        <Router>
-            <Switch>
+        <>
+            <Router >
+                <div id="landing-img">
+                    <MyComponent />
+                    <Switch>
+                        <Route path="/pamflets/hvem">
+                            <Hvem />
+                        </Route>
+                        <Route path="/pamflets/hva">
+                            <Hva />
+                        </Route>
+                        <Route path="/pamflets/hvorfor">
+                            <Hvorfor />
+                        </Route>
+                        <Route path="/pamflets/hvordan">
+                            <Hvordan />
+                        </Route>
+                        <Route path="/pamflets/12tradisjoner">
+                            <Tradisjoner />
+                        </Route>
+                        <Route path="/pamflets/bareforidag">
+                            <BareForIDag />
+                        </Route>
+                        <Route path="/pamflets/vitilfriskner">
+                            <ViTilfriskner />
+                        </Route>
+                        <Route path="/pamflets">
+                            <Pamflets />
+                        </Route>
 
-                <Route path="/pamflets/hvem">
-                    <Hvem />
-                </Route>
-                <Route path="/pamflets/hva">
-                    <Hva />
-                </Route>
-                <Route path="/pamflets/hvorfor">
-                    <Hvorfor/>
-                </Route>
-                <Route path="/pamflets/hvordan">
-                    <Hvordan />
-                </Route>
-                <Route path="/pamflets/12tradisjoner">
-                    <Tradisjoner/>
-                </Route>
-                <Route path="/pamflets/bareforidag">
-                    <BareForIDag/>
-                </Route>
-                <Route path="/pamflets/vitilfriskner">
-                    <ViTilfriskner/>
-                </Route>
-                <Route path="/pamflets">
-                    <Pamflets />
-                </Route>
+                        <Route path="/registrer">
+                            <Register />
+                        </Route>
+                        <Route path="/liste">
+                            <Table />
+                        </Route>
+                        <Route path="/seventhtradition">
+                            <SeventhTradition />
+                        </Route>
+                        <Route path="/meetings">
+                            <Meetings />
+                        </Route>
+                        <Route path="/slope">
+                            <Slope />
+                        </Route>
+                        <Route path="/contact">
+                            <Contact />
+                        </Route>
 
-                <Route path="/registrer">
-                    <Register />
-                </Route>
-                <Route path="/liste">
-                    <Table />
-                </Route>
-                <Route path="/seventhtradition">
-                    <SeventhTradition />
-                </Route>
-                <Route path="/meetings">
-                    <Meetings />
-                </Route>
-                <Route path="/slope">
-                    <Slope/>
-                </Route>
-                <Route path="/contact">
-                    <Contact/>
-                </Route>
-
-                <Route path="/">
-                    <Home />
-                </Route>
-            </Switch>
-        </Router>
+                        <Route path="/">
+                            <Home />
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        </>
     )
 }
+export default App;

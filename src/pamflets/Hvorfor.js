@@ -4,8 +4,8 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 const PamfHvorfor = () => {
     return (
         <div>
-            <div class="pam" id="pam-hvorfor">
-                <div class="box-pam mb-4">
+            <div className="pam" id="pam-hvorfor">
+                <div className="box-pam mb-4">
                     <h2>
                         Hvorfor er vi her?
                 </h2>
@@ -17,20 +17,20 @@ const PamfHvorfor = () => {
                 </div>
             </div>
 
-            <div class="row footer fixed-bottom mb-3">
-                <div class="col">
+            <div className="row footer fixed-bottom mb-3">
+                <div className="col">
                     <Link to="/pamflets/hva">
-                        <img class="mx-auto d-block mt-3" src="../img/left-arrow-black.png" id="back" alt="Hva" />
+                        <img className="mx-auto d-block mt-3" src="../img/left-arrow-black.png" id="back" alt="Hva" />
                     </Link>
                 </div>
-                <div class="col text-center">
+                <div className="col text-center">
                     <Link to="/pamflets">
                         <FontAwesomeIcon size="4x" color="black" icon={faHome} alt="Innledning" />
                     </Link>
                 </div>
-                <div class="col">
+                <div className="col">
                     <Link to="/pamflets/hvordan">
-                        <img class="mx-auto d-block mt-3" src="../img/right-arrow-black.png" id="back" alt="Hvordan det virker" />
+                        <img className="mx-auto d-block mt-3" src="../img/right-arrow-black.png" id="back" alt="Hvordan det virker" />
                     </Link>
                 </div>
             </div>

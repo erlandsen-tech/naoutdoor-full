@@ -14,14 +14,14 @@ import BareForIDag from './pamflets/BareForIDag';
 import ViTilfriskner from './pamflets/ViTilfriskner';
 import Slope from './Slope';
 import Contact from './Contact';
-import MyComponent from './Header';
+import Registered from './Registered';
 
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    useLocation
+    Route
 } from "react-router-dom";
+import Analytics from './Analytics';
 
 function usePageViews() {
     let location = window.location.pathname;
@@ -36,7 +36,6 @@ function App() {
         <>
             <Router >
                 <div id="landing-img">
-                    <MyComponent />
                     <Switch>
                         <Route path="/pamflets/hvem">
                             <Hvem />
@@ -80,6 +79,12 @@ function App() {
                         </Route>
                         <Route path="/contact">
                             <Contact />
+                        </Route>
+                        <Route path="/registered">
+                            <Registered />
+                        </Route>
+                        <Route path="/analytics">
+                            <Analytics />
                         </Route>
 
                         <Route path="/">

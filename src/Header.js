@@ -2,10 +2,10 @@ import React from 'react'
 import {
     Link
 } from "react-router-dom";
-function MyComponent() {
+function Header() {
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
-        width: window.innerWidth
+        width: window.innerWidth,
     })
     React.useEffect(() => {
         function handleResize() {
@@ -21,15 +21,15 @@ function MyComponent() {
             window.removeEventListener('resize', handleResize)
         }
     })
-    if (dimensions.width < dimensions.height && !(window.location.pathname).match('pamflets')) {
+    if (dimensions.width < dimensions.height && !(window.location.pathname).match('/pamflets/')) {
         return (
-            <div class="logotext-img">
+            <div className="logotext-img" id="header">
                 <Link to="/">
-                    <img src="/img/logotext.png" class="img-fluid" alt="Ski & Recovery" />
+                    <img src="/img/logotext.png" className="img-fluid" alt="Ski & Recovery" />
                 </Link>
             </div>
         )
     }
     return null;
 }
-export default MyComponent;
+export default Header;

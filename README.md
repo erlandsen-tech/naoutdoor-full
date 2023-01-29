@@ -2,7 +2,6 @@ npm install
 
 npm run build
 
-serve -s build
+npm start
 
-Nå kjører appen i localhost:5000
-JON INGE ER NERD
+Nå kjører appen i localhost:3000

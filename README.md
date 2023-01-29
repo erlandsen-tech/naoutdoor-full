@@ -2,9 +2,9 @@ npm install
 
 npm run build
 
-serve -s build
+npm start
 
-Nå kjører appen i localhost:5000
+Nå kjører appen i localhost:3000
 
 # TODO
 Remove analytics.js

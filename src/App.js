@@ -1,6 +1,5 @@
 import React from 'react'
 import Table from './Table';
-import Register from './Register'
 import Home from './Home';
 import SeventhTradition from './SeventhTradition';
 import Meetings from './Meetings';
@@ -14,7 +13,6 @@ import BareForIDag from './pamflets/BareForIDag';
 import ViTilfriskner from './pamflets/ViTilfriskner';
 import Slope from './Slope';
 import Contact from './Contact';
-import Registered from './Registered';
 
 import {
     BrowserRouter as Router,
@@ -62,9 +60,6 @@ function App() {
                             <Pamflets />
                         </Route>
 
-                        <Route path="/registrer">
-                            <Register />
-                        </Route>
                         <Route path="/liste">
                             <Table />
                         </Route>
@@ -79,9 +74,6 @@ function App() {
                         </Route>
                         <Route path="/contact">
                             <Contact />
-                        </Route>
-                        <Route path="/registered">
-                            <Registered />
                         </Route>
                         <Route path="/analytics">
                             <Analytics />

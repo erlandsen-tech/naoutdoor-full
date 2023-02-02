@@ -12,11 +12,6 @@ const Home = () => {
             <div className="container footer fixed-bottom mb-5">
                 <div className="row row-cols-3 mb-5 justify-content-center">
                     <div className="col-3">
-                        <Link to="/registrer">
-                            <img src="/img/register.png" className="mx-auto d-block" alt="Registrering" />
-                        </Link>
-                    </div>
-                    <div className="col-3">
                         <Link to="/seventhtradition">
                             <img src="/img/donation.png" className="mx-auto d-block" alt="7 Tradisjon" />
                         </Link>
@@ -42,11 +37,6 @@ const Home = () => {
                     <div className="col-3">
                         <Link to="/pamflets">
                             <img src="/img/magazine.png" className="mx-auto d-block" alt="Pamfletter" />
-                        </Link>
-                    </div>
-                    <div className="col-3">
-                        <Link to="/analytics">
-                            <img src="/img/analytics.png" className="mx-auto d-block" alt="Pamfletter" />
                         </Link>
                     </div>
                     </div>

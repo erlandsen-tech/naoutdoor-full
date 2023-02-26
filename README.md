@@ -1,5 +1,5 @@
-
 Open to see structure: 
+
 
 
 home <-> readings <-> Speaker meeting manual <-> inledning-Speaker

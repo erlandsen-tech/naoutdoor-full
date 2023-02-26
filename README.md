@@ -1,3 +1,23 @@
+home <-> readings <-> Eng <-> pamfEng
+                  <-> Nor <-> pamfNor
+                  <-> Swe <-> pamfSwe
+                  <-> Iri <-> pamfEng
+                  <-> Dut <-> pamfDut
+                  <-> Dan <-> pamfDan
+                  <-> Fin <-> pamfFin
+                  <-> Fre <-> pamfFre
+                 (<-> Pol <-> pamfPol)later, no translation to copy/paste
+                 (<-> Ice <-> pamfIce)later, no translation to copy/paste
+     
+     <-> seventhtradition <-> vipps og bankkonto(future vipps api)
+     
+     <-> meetings <-> program
+     
+     <-> slope <-> alpin.jpg
+     
+     <-> contact <-> contact us on mail
+
+
 npm install
 
 npm run build

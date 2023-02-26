@@ -1,11 +1,72 @@
-home <-> readings <-> Eng <-> pamfEng
-                  <-> Nor <-> pamfNor
-                  <-> Swe <-> pamfSwe
-                  <-> Iri <-> pamfEng
-                  <-> Dut <-> pamfDut
-                  <-> Dan <-> pamfDan
-                  <-> Fin <-> pamfFin
-                  <-> Fre <-> pamfFre
+Open to see structure: 
+
+home <-> readings <-> Speaker meeting manual        <-> inledning-Speaker
+                  <-> Just For Today meeting manual <-> inledning-JFT
+
+                  <-> Eng <-> pamfEng <-> Who
+                                      <-> What
+                                      <-> Why
+                                      <-> How
+                                      <-> Trad
+                                      <-> JFT
+                                      <-> WDR
+                  
+                  <-> Nor <-> pamfNor <-> Who
+                                      <-> What
+                                      <-> Why
+                                      <-> How
+                                      <-> Trad
+                                      <-> JFT
+                                      <-> WDR
+                  
+                  <-> Swe <-> pamfSwe <-> Who
+                                      <-> What
+                                      <-> Why
+                                      <-> How
+                                      <-> Trad
+                                      <-> JFT
+                                      <-> WDR
+                                      
+                  <-> Iri <-> pamfEng <-> Who
+                                      <-> What
+                                      <-> Why
+                                      <-> How
+                                      <-> Trad
+                                      <-> JFT
+                                      <-> WDR
+                                      
+                  <-> Dut <-> pamfDut <-> Who
+                                      <-> What
+                                      <-> Why
+                                      <-> How
+                                      <-> Trad
+                                      <-> JFT
+                                      <-> WDR
+                                      
+                  <-> Dan <-> pamfDan <-> Who
+                                      <-> What
+                                      <-> Why
+                                      <-> How
+                                      <-> Trad
+                                      <-> JFT
+                                      <-> WDR
+                                      
+                  <-> Fin <-> pamfFin <-> Who
+                                      <-> What
+                                      <-> Why
+                                      <-> How
+                                      <-> Trad
+                                      <-> JFT
+                                      <-> WDR
+                                      
+                  <-> Fre <-> pamfFre <-> Who
+                                      <-> What
+                                      <-> Why
+                                      <-> How
+                                      <-> Trad
+                                      <-> JFT
+                                      <-> WDR
+                                      
                  (<-> Pol <-> pamfPol)later, no translation to copy/paste
                  (<-> Ice <-> pamfIce)later, no translation to copy/paste
      

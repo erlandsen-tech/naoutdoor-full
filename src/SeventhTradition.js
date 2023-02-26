@@ -14,7 +14,7 @@ const SeventhTradition = () => {
                 <div className="row  justify-content-center bg-dark mt-5">
                     <div className="col fw-bold form-text text-center mt">
                         <h1 className="" style={{color: "royalblue"}}>
-                        Vipps nummer: 520065
+                        Vipps number: 520065
                         </h1>
                     </div>
                 </div>

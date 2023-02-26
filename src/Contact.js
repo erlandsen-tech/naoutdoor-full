@@ -7,15 +7,15 @@ const Contact = () => {
             <div className="kontakt-text footer fixed-bottom mb-5">
                 <div className="kon-box-1 mb-5">
                     <h3>
-                        Google det du lurer på først!<br />
-                            Spørr sponsorn i andre hand!<br />
-                            Om du ikke fått svar.
+                        Google your question first!<br />
+                        Ask your sponsor!<br />
+                        If you haven't the answer.
                         </h3>
                 </div>
                 <div className="kon-box-2 mb-5">
                     <h3>
                         <br />
-                        <strong><a href="mailto:naoutdoor@outlook.com">Kontakt oss på mail</a></strong>
+                        <strong><a href="mailto:naoutdoor@outlook.com">Contact us on mail</a></strong>
                     </h3>
                 </div>
                 <Link to="/">

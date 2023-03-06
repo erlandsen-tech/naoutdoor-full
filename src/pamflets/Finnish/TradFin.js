@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-const Pamf12Trad = () => {
+const TradFin = () => {
     return (
         <div>
 
@@ -51,24 +51,12 @@ const Pamf12Trad = () => {
                 </div>
             </div>
 
-            <div className="row footer fixed-bottom mb-3">
-                <div className="col">
-                    <Link to="/pamflets/hvordan">
-                        <img className="mx-auto d-block mt-3" src="../img/left-arrow-black.png" id="back" alt="Hvordan det virker" />
-                    </Link>
-                </div>
-                <div className="col text-center">
-                    <Link to="/pamflets">
-                        <FontAwesomeIcon size="4x" color="black" icon={faHome} alt="Innledning" />
-                    </Link>
-                </div>
-                <div className="col">
-                    <Link to="/pamflets/bareforidag">
-                        <img className="mx-auto d-block mt-3" src="../img/right-arrow-black.png" id="back" alt="Bare for i dag" />
-                    </Link>
-                </div>
+            <div>
+                <Link to="/Finnish/PamFin">
+                    <img className="mx-auto d-block footer fixed-bottom mb-3" src="/img/left-arrow-black.png" id="back" alt="Back" />
+                </Link>
             </div>
         </div>
     );
 };
-export default Pamf12Trad;
+export default TradFin;

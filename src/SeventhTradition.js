@@ -8,13 +8,30 @@ const SeventhTradition = () => {
             <div className="container-fluid">
                 <div className="row ">
                     <div className="col">
-                        <img className="mx-auto d-block" src="/img/vipps.png" />
+                        <img className="mx-auto d-block" src="/img/pay_with_vipps.png" />
                     </div>
                 </div>
                 <div className="row  justify-content-center bg-dark mt-5">
                     <div className="col fw-bold form-text text-center mt">
                         <h1 className="" style={{color: "royalblue"}}>
                         Vipps number: 520065
+                        </h1>
+                    </div>
+                </div>
+                <div className="row  justify-content-center bg-dark mt-5">
+                    <div className="col fw-bold form-text text-center mt">
+                        <h1 className="" style={{color: "royalblue"}}>
+                        Kontonr: 15060727772
+                        </h1>
+                    </div>
+                </div>
+                <div className="row  justify-content-center bg-dark mt-5">
+                    <div className="col fw-bold form-text text-center mt">
+                        <h1 className="" style={{color: "royalblue"}}>
+                        Account Name: NA Outdoor<br />
+                        Bank Name: DNB<br />
+                        BIC/SWIFT: DNBANOKKXXX<br />
+                        IBAN: NO5215060727772
                         </h1>
                     </div>
                 </div>

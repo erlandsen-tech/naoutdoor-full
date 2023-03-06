@@ -8,7 +8,7 @@ const Contact = () => {
                 <div className="kon-box-1 mb-5">
                     <h3>
                         Google your question first!<br />
-                        Ask your sponsor!<br />
+                        Then ask your sponsor!<br />
                         If you haven't the answer.
                         </h3>
                 </div>

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-const PamfHvorfor = () => {
+const WhyGer = () => {
     return (
         <div>
             <div className="pam" id="pam-hvorfor">
-                <div className="box-pam mb-4">
+                <div className="box-pam">
                     <h2>
                         Warum sind wir hier? 
                     </h2>
@@ -41,24 +41,12 @@ const PamfHvorfor = () => {
                 </div>
             </div>
 
-            <div className="row footer fixed-bottom mb-3">
-                <div className="col">
-                    <Link to="/pamflets/hva">
-                        <img className="mx-auto d-block mt-3" src="../img/left-arrow-black.png" id="back" alt="Hva" />
-                    </Link>
-                </div>
-                <div className="col text-center">
-                    <Link to="/pamflets">
-                        <FontAwesomeIcon size="4x" color="black" icon={faHome} alt="Innledning" />
-                    </Link>
-                </div>
-                <div className="col">
-                    <Link to="/pamflets/hvordan">
-                        <img className="mx-auto d-block mt-3" src="../img/right-arrow-black.png" id="back" alt="Hvordan det virker" />
-                    </Link>
-                </div>
+            <div>
+                <Link to="/German/PamGer">
+                    <img className="mx-auto d-block footer fixed-bottom mb-3" src="/img/left-arrow-black.png" id="back" alt="Back" />
+                </Link>
             </div>
         </div>
     );
 };
-export default PamfHvorfor;
+export default WhyGer;

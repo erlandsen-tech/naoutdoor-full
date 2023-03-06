@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-const PamfViTilfriskner = () => {
+const WDRDan = () => {
     return (
         <div>
 
@@ -27,24 +27,12 @@ const PamfViTilfriskner = () => {
                 </div>
             </div>
 
-            <div className="row footer fixed-bottom mb-3">
-                <div className="col">
-                    <Link to="/pamflets/bareforidag">
-                        <img className="mx-auto d-block mt-3" src="../img/left-arrow-black.png" id="back" alt="Bare For I Dag" />
-                    </Link>
-                </div>
-                <div className="col text-center">
-                    <Link to="/pamflets">
-                        <FontAwesomeIcon size="4x" color="black" icon={faHome} alt="Innledning" />
-                    </Link>
-                </div>
-                <div className="col">
-                    <Link to="/pamflets/hvem">
-                        <img className="mx-auto d-block mt-3" src="../img/right-arrow-black.png" id="back" alt="Hvem" />
-                    </Link>
-                </div>
+            <div>
+                <Link to="/Danish/PamDan">
+                    <img className="mx-auto d-block footer fixed-bottom mb-3" src="/img/left-arrow-black.png" id="back" alt="Back" />
+                </Link>
             </div>
         </div>
     );
 };
-export default PamfViTilfriskner;
+export default WDRDan;

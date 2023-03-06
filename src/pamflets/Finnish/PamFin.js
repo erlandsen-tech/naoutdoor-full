@@ -1,37 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from './Header';
-const Pamflets = () => {
+import Header from '../../Header';
+const PamFin = () => {
     return (
 
         <div className="container">
             <Header/>
             <div className="d-grid gap-3 col-7 mx-auto">
-                <Link to="/pamflets/Hvem" className="btn btn-dark">
-                    Hvem
+                <Link to="/Finnish/WhoFin" className="btn btn-dark">
+                    Kuka on addikti?
                     </Link>
-                <Link to="/pamflets/hva" className="btn btn-dark">
-                    Hva
+                <Link to="/Finnish/WhatFin" className="btn btn-dark">
+                    Mikä on Nimettömien Narkomaanien ohjelma?
                     </Link>
-                <Link to="/pamflets/hvorfor" className="btn btn-dark">
-                    Hvorfor
+                <Link to="/Finnish/WhyFin" className="btn btn-dark">
+                    Miksi olemme täällä?
                     </Link>
-                <Link to="/pamflets/hvordan" className="btn btn-dark">
-                    Hvordan det virker
+                <Link to="/Finnish/HowFin" className="btn btn-dark">
+                    Miten se toimii
                     </Link>
-                <Link to="/pamflets/12tradisjoner" className="btn btn-dark">
-                    NAs 12 Tradisjoner
+                <Link to="/Finnish/TradFin" className="btn btn-dark">
+                    NA:n kaksitoista perinnettä
                     </Link>
-                <Link to="/pamflets/bareforidag" className="btn btn-dark">
-                    Bare For I Dag
+                <Link to="/Finnish/JFTFin" className="btn btn-dark">
+                    Juuri Tänään
                     </Link>
-                <Link to="/pamflets/vitilfriskner" className="btn btn-dark">
-                    Vi Tilfriskner
+                <Link to="/Finnish/WDRFin" className="btn btn-dark">
+                    Me todella toivumme
                     </Link>
             </div>
-            <Link to="/">
-                <img className="mx-auto d-block footer fixed-bottom mb-3" src="img/left-arrow.png" id="back" alt="Back" />
+            <Link to="/Readings">
+                <img className="mx-auto d-block footer fixed-bottom mb-3" src="../img/left-arrow.png" id="back" alt="Back" />
             </Link></div>
     );
 }
-export default Pamflets;
+export default PamFin;

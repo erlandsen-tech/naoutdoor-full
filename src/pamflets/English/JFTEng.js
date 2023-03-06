@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-const PamfBareForIDag = () => {
+const JFTEng = () => {
     return (
         <div>
-
             <div className="pam" id="pam-bare">
                 <div className="box-pam">
                     <h2>
@@ -25,25 +24,12 @@ const PamfBareForIDag = () => {
                     </p>
                 </div>
             </div>
-
-            <div className="row footer fixed-bottom mb-3">
-                <div className="col">
-                    <Link to="/pamflets/12tradisjoner">
-                        <img className="mx-auto d-block mt-3" src="../img/left-arrow-black.png" id="back" alt="NAs 12 Tradisjoner" />
-                    </Link>
-                </div>
-                <div className="col text-center">
-                    <Link to="/pamflets">
-                        <FontAwesomeIcon size="4x" color="black" icon={faHome} alt="Innledning" />
-                    </Link>
-                </div>
-                <div className="col">
-                    <Link to="/pamflets/vitilfriskner">
-                        <img className="mx-auto d-block mt-3" src="../img/right-arrow-black.png" id="back" alt="Vi Tilfriskner" />
-                    </Link>
-                </div>
+            <div>
+                <Link to="/English/PamEng">
+                    <img className="mx-auto d-block footer fixed-bottom mb-3" src="/img/left-arrow-black.png" id="back" alt="Back" />
+                </Link>
             </div>
         </div>
     );
 };
-export default PamfBareForIDag;
+export default JFTEng;

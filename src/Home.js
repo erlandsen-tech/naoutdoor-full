@@ -12,8 +12,8 @@ const Home = () => {
             <div className="container footer fixed-bottom mb-5">
                 <div className="row row-cols-3 mb-5 justify-content-center">
                     <div className="col-3">
-                        <Link to="/pamflets">
-                            <img src="/img/magazine.png" className="mx-auto d-block" alt="Pamfletter" />
+                        <Link to="/readings">
+                            <img src="/img/magazine.png" className="mx-auto d-block" alt="Readings" />
                         </Link>
                     </div>
                     <div className="col-3">

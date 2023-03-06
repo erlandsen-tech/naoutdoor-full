@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-const PamfHvem = () => {
+const WhatDut = () => {
     return (
         <div>
             <div className="pam" id="pam-hva">
@@ -43,24 +43,12 @@ const PamfHvem = () => {
                 </div>
             </div>
 
-            <div className="row footer fixed-bottom mb-3">
-                <div className="col">
-                    <Link to="/pamflets/hvem">
-                        <img className="mx-auto d-block mt-3" src="../img/left-arrow-black.png" id="back" alt="Hvem" />
-                    </Link>
-                </div>
-                <div className="col text-center">
-                    <Link to="/pamflets">
-                        <FontAwesomeIcon size="4x" color="black" icon={faHome} alt="Innledning"/>
-                    </Link>
-                </div>
-                <div className="col">
-                    <Link to="/pamflets/hvorfor">
-                        <img className="mx-auto d-block mt-3" src="../img/right-arrow-black.png" id="back" alt="Hvorfor" />
-                    </Link>
-                </div>
+            <div>
+                <Link to="/Dutch/PamDut">
+                    <img className="mx-auto d-block footer fixed-bottom mb-3" src="/img/left-arrow-black.png" id="back" alt="Back" />
+                </Link>
             </div>
         </div>
     );
 };
-export default PamfHvem;
+export default WhatDut;

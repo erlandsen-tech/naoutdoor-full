@@ -1,37 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from './Header';
-const Pamflets = () => {
+import Header from '../../Header';
+const PamGer = () => {
     return (
 
         <div className="container">
             <Header/>
             <div className="d-grid gap-3 col-7 mx-auto">
-                <Link to="/pamflets/Hvem" className="btn btn-dark">
-                    Hvem
+                <Link to="/German/WhoGer" className="btn btn-dark">
+                    Wer ist süchtig?
                     </Link>
-                <Link to="/pamflets/hva" className="btn btn-dark">
-                    Hva
+                <Link to="/German/WhatGer" className="btn btn-dark">
+                    Was bedeutet das Narcotics Anonymous Programm?
                     </Link>
-                <Link to="/pamflets/hvorfor" className="btn btn-dark">
-                    Hvorfor
+                <Link to="/German/WhyGer" className="btn btn-dark">
+                    Warum sind wir hier?
                     </Link>
-                <Link to="/pamflets/hvordan" className="btn btn-dark">
-                    Hvordan det virker
+                <Link to="/German/HowGer" className="btn btn-dark">
+                    Wie es funktioniert
                     </Link>
-                <Link to="/pamflets/12tradisjoner" className="btn btn-dark">
-                    NAs 12 Tradisjoner
+                <Link to="/German/TradGer" className="btn btn-dark">
+                    Die Zwölf Traditionen von NA
                     </Link>
-                <Link to="/pamflets/bareforidag" className="btn btn-dark">
-                    Bare For I Dag
+                <Link to="/German/JFTGer" className="btn btn-dark">
+                    Nur für heute
                     </Link>
-                <Link to="/pamflets/vitilfriskner" className="btn btn-dark">
-                    Vi Tilfriskner
+                <Link to="/German/WDRGer" className="btn btn-dark">
+                    Wir genesen
                     </Link>
             </div>
-            <Link to="/">
-                <img className="mx-auto d-block footer fixed-bottom mb-3" src="img/left-arrow.png" id="back" alt="Back" />
-            </Link></div>
+            <div>
+                <Link to="/Readings">
+                    <img className="mx-auto d-block footer fixed-bottom mb-3" src="../img/left-arrow.png" id="back" alt="Back" />
+                </Link>
+            </div>
+        </div>    
     );
 }
-export default Pamflets;
+export default PamGer;

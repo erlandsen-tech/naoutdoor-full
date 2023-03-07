@@ -25,7 +25,7 @@ function Header() {
         return (
             <div className="logotext-img" id="header">
                 <Link to="/">
-                    <img src="/img/logotext.png" className="img-fluid" alt="Ski & Recovery" />
+                    <img src="/img/logotext.png" className="img-fluid mt-20" alt="Ski & Recovery" />
                 </Link>
             </div>
         )

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 const HowDan = () => {
     return (
-        <div>
+        <div className="container">
             <div className="pam" id="pam-hvordan">
                 <div className="box-pam">
                     <h2>

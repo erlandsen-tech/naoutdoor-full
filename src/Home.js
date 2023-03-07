@@ -13,7 +13,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            <div className="container fixed-bottom mb-5 mw-50">
+            <div className="container fixed-bottom mb-5 mw-50 mh-50">
                 <div className="row row-cols-3 mb-5 justify-content-center">
                     <div className="col-3">
                         <Link to="/readings">

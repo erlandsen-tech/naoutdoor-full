@@ -24,4 +24,3 @@ remove all buttons and route from frontpage
 
 1. add new wallpaper
 2. add new program
->>>>>>> main

@@ -5,7 +5,6 @@ const Pamfre = () => {
     return (
 
         <div className="container">
-            <Header/>
             <div className="container">
             <div className="d-grid gap-2 col-10 mx-auto">
                     <Link to="/French/WhoFre" className="btn btn-dark  text-wrap">

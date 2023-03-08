@@ -5,14 +5,7 @@ import Header from './Header';
 
 const Home = () => {
     return (
-            <div className="container">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <Header />
-                        </div>
-                    </div>
-                </div>
+        <div className="container">
             <div className="container fixed-bottom mb-5 mw-50 mh-50">
                 <div className="row row-cols-3 mb-5 justify-content-center">
                     <div className="col-3">

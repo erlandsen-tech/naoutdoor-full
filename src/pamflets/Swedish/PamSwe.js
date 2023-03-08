@@ -4,7 +4,6 @@ import Header from '../../Header';
 const PamSwe = () => {
     return (
         <div className="container">
-            <Header/>
             <div className="d-grid gap-3 col-7 mx-auto">
                 <Link to="/Swedish/WhoSwe" className="btn btn-dark">
                     Vem är en Beroende?

@@ -5,7 +5,6 @@ const PamDan = () => {
     return (
 
         <div className="container">
-            <Header/>
             <div className="d-grid gap-3 col-7 mx-auto">
                 <Link to="/Danish/WhoDan" className="btn btn-dark">
                     Hvem er en addict?

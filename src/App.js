@@ -86,6 +86,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import Header from "./Header";
 
 function usePageViews() {
     let location = window.location.pathname;
@@ -100,6 +101,7 @@ function App() {
         <>
             <Router >
                 <div id="landing-img">
+                    <Header />
                     <Switch>
                         <Route path="/readings">
                             <Readings />

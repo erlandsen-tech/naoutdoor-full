@@ -4,7 +4,6 @@ import Header from '../../Header';
 const PamEng = () => {
     return (
         <div className="container">
-            <Header/>
             <div className="d-grid gap-3 col-7 mx-auto">
                 <Link to="/English/WhoEng" className="btn btn-dark">
                     Who is an Addict?

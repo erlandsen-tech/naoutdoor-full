@@ -5,7 +5,6 @@ const PamFin = () => {
     return (
 
         <div className="container">
-            <Header/>
             <div className="d-grid gap-3 col-7 mx-auto">
                 <Link to="/Finnish/WhoFin" className="btn btn-dark">
                     Kuka on addikti?

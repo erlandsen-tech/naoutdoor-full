@@ -1,15 +1,17 @@
 import React from 'react'
 import {
-    Link
+    Link,
+    useLocation
 } from "react-router-dom";
 function Header() {
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
         width: window.innerWidth,
     })
+    const location = useLocation()
+    const excludedPaths = ['/how', '/jft', '/trad', '/wdr', '/what', '/who', '/why', '/manspe', '/manjft'];
     React.useEffect(() => {
         function handleResize() {
-            console.log(window.location.pathname);
             setDimensions({
                 height: window.innerHeight,
                 width: window.innerWidth
@@ -21,13 +23,12 @@ function Header() {
             window.removeEventListener('resize', handleResize)
         }
     })
-    if (dimensions.width < dimensions.height && !(window.location.pathname).match('/pamflets/')) {
+    if (dimensions.width < dimensions.height && !excludedPaths.some(path => location.pathname.toLowerCase().includes(path)))
+    {
         return (
-            <div className="logotext-img" id="header">
                 <Link to="/">
-                    <img src="/img/logotext.png" className="img-fluid mt-20" alt="Ski & Recovery" />
+                    <img src="/img/logotext.png" className="img-fluid mt-2" alt="Ski & Recovery" />
                 </Link>
-            </div>
         )
     }
     return null;

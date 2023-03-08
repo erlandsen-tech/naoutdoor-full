@@ -3,7 +3,6 @@ import Header from './Header';
 const Contact = () => {
     return (
         <div className="container">
-            <Header />
             <div className="kontakt-text footer fixed-bottom mb-5">
                 <div className="kon-box-1 mb-5">
                     <h3>

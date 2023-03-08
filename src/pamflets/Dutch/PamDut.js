@@ -5,7 +5,6 @@ const PamDut = () => {
     return (
 
         <div className="container">
-            <Header/>
             <div className="d-grid gap-3 col-7 mx-auto">
                 <Link to="/Dutch/WhoDut" className="btn btn-dark">
                     Wie is verslaafd?

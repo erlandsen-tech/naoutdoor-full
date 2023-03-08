@@ -4,7 +4,6 @@ import Header from './Header';
 const SeventhTradition = () => {
     return (
         <div className="container">
-            <Header/>
             <div className="container-fluid">
                 <div className="row ">
                     <div className="col">

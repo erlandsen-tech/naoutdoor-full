@@ -5,7 +5,7 @@ const Meetings = () => {
     return (
         <div className="container-fluid bg-dark px-0">
                 <div className="container col">
-                    <img className="img-fluid w-100" src="img/program2023.jpg" alt="Programmet" />
+                    <img className="img-fluid w-100" src="img/program.jpg" alt="Programmet" />
             </div>
                 <div className="fixed-bottom footer">
                     <Link to="/">

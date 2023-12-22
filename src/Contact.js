@@ -14,7 +14,7 @@ const Contact = () => {
                 <div className="kon-box-2 mb-5">
                     <h3>
                         <br />
-                        <strong><a href="mailto:naoutdoor@outlook.com">Contact us on mail</a></strong>
+                        <strong><a href="mailto:mail@naoutdoor.org">Contact us on mail</a></strong>
                     </h3>
                 </div>
                 <Link to="/">

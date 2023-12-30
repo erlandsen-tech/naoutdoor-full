@@ -5,6 +5,7 @@ import Meetings from './Meetings';
 import Slope from './Slope';
 import Contact from './Contact';
 import Readings from './Readings';
+import Registration from './Registration';
 
 import ManJFT from './ManJFT';
 import ManSpe from './ManSpe';
@@ -81,11 +82,8 @@ import TradFin from './pamflets/Finnish/TradFin';
 import JFTFin from './pamflets/Finnish/JFTFin';
 import WDRFin from './pamflets/Finnish/WDRFin';
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Header from "./Header";
 
 function usePageViews() {
@@ -93,247 +91,109 @@ function usePageViews() {
     React.useEffect(() => {
         console.log(location);
     }, [location]);
-  }
+}
 
 function App() {
     usePageViews();
     return (
         <>
-            <Router >
+            <Router>
                 <div id="landing-img">
-                    <Header />
-                    <Switch>
-                        <Route path="/readings">
-                            <Readings />
-                        </Route>
-                        <Route path="/seventhtradition">
-                            <SeventhTradition />
-                        </Route>
-                        <Route path="/meetings">
-                            <Meetings />
-                        </Route>
-                        <Route path="/slope">
-                            <Slope />
-                        </Route>
-                        <Route path="/contact">
-                            <Contact />
-                        </Route>
-
-                        <Route path="/ManJFT">
-                            <ManJFT />
-                        </Route>    
-                        <Route path="/ManSpe">
-                            <ManSpe />
-                        </Route>
+                    <Header/>
+                    <Routes>
+                        <Route path="/registration" element={<Registration/>}/>
+                        <Route path="/readings" element={<Readings/>}/>
+                        <Route path="/seventhtradition" element={<SeventhTradition/>}/>
+                        <Route path="/meetings" element={<Meetings/>}/>
+                        <Route path="/slope" element={<Slope/>}/>
+                        <Route path="/contact" element={<Contact/>}/>
+                        <Route path="/ManJFT" element={<ManJFT/>}/>
+                        <Route path="/ManSpe" element={<ManSpe/>}/>
 
                         {/* English */}
-                        <Route path="/English/PamEng">
-                            <PamEng />
-                        </Route>
-                        <Route path="/English/WhoEng">
-                            <WhoEng />
-                        </Route>
-                        <Route path="/English/WhatEng">
-                            <WhatEng />
-                        </Route>
-                        <Route path="/English/WhyEng">
-                            <WhyEng />
-                        </Route>
-                        <Route path="/English/HowEng">
-                            <HowEng />
-                        </Route>
-                        <Route path="/English/TradEng">
-                            <TradEng />
-                        </Route>
-                        <Route path="/English/JFTEng">
-                            <JFTEng />
-                        </Route>
-                        <Route path="/English/WDREng">
-                            <WDREng />
-                        </Route>
+                        <Route path="/English/PamEng" element={<PamEng/>}/>
+                        <Route path="/English/WhoEng" element={<WhoEng/>}/>
+                        <Route path="/English/WhatEng" element={<WhatEng/>}/>
+                        <Route path="/English/WhyEng" element={<WhyEng/>}/>
+                        <Route path="/English/HowEng" element={<HowEng/>}/>
+                        <Route path="/English/TradEng" element={<TradEng/>}/>
+                        <Route path="/English/JFTEng" element={<JFTEng/>}/>
+                        <Route path="/English/WDREng" element={<WDREng/>}/>
                         {/* Norwegian */}
-                        <Route path="/Norwegian/PamNor">
-                            <PamNor />
-                        </Route>
-                        <Route path="/Norwegian/WhoNor">
-                            <WhoNor />
-                        </Route>
-                        <Route path="/Norwegian/WhatNor">
-                            <WhatNor />
-                        </Route>
-                        <Route path="/Norwegian/WhyNor">
-                            <WhyNor />
-                        </Route>
-                        <Route path="/Norwegian/HowNor">
-                            <HowNor />
-                        </Route>
-                        <Route path="/Norwegian/TradNor">
-                            <TradNor />
-                        </Route>
-                        <Route path="/Norwegian/JFTNor">
-                            <JFTNor />
-                        </Route>
-                        <Route path="/Norwegian/WDRNor">
-                            <WDRNor />
-                        </Route>
-                        {/* Swedish */}
-                        <Route path="/Swedish/PamSwe">
-                            <PamSwe />
-                        </Route>
-                        <Route path="/Swedish/WhoSwe">
-                            <WhoSwe />
-                        </Route>
-                        <Route path="/Swedish/WhatSwe">
-                            <WhatSwe />
-                        </Route>
-                        <Route path="/Swedish/WhySwe">
-                            <WhySwe />
-                        </Route>
-                        <Route path="/Swedish/HowSwe">
-                            <HowSwe />
-                        </Route>
-                        <Route path="/Swedish/TradSwe">
-                            <TradSwe />
-                        </Route>
-                        <Route path="/Swedish/JFTSwe">
-                            <JFTSwe />
-                        </Route>
-                        <Route path="/Swedish/WDRSwe">
-                            <WDRSwe />
-                        </Route>
-                        {/* Danish */}
-                        <Route path="/Danish/PamDan">
-                            <PamDan />
-                        </Route>
-                        <Route path="/Danish/WhoDan">
-                            <WhoDan />
-                        </Route>
-                        <Route path="/Danish/WhatDan">
-                            <WhatDan />
-                        </Route>
-                        <Route path="/Danish/WhyDan">
-                            <WhyDan />
-                        </Route>
-                        <Route path="/Danish/HowDan">
-                            <HowDan />
-                        </Route>
-                        <Route path="/Danish/TradDan">
-                            <TradDan />
-                        </Route>
-                        <Route path="/Danish/JFTDan">
-                            <JFTDan />
-                        </Route>
-                        <Route path="/Danish/WDRDan">
-                            <WDRDan />
-                        </Route>
-                        {/* Dutch */}
-                        <Route path="/Dutch/PamDut">
-                            <PamDut />
-                        </Route>
-                        <Route path="/Dutch/WhoDut">
-                            <WhoDut />
-                        </Route>
-                        <Route path="/Dutch/WhatDut">
-                            <WhatDut />
-                        </Route>
-                        <Route path="/Dutch/WhyDut">
-                            <WhyDut />
-                        </Route>
-                        <Route path="/Dutch/HowDut">
-                            <HowDut />
-                        </Route>
-                        <Route path="/Dutch/TradDut">
-                            <TradDut />
-                        </Route>
-                        <Route path="/Dutch/JFTDut">
-                            <JFTDut />
-                        </Route>
-                        <Route path="/Dutch/WDRDut">
-                            <WDRDut />
-                        </Route>
-                        {/* German */}
-                        <Route path="/German/PamGer">
-                            <PamGer />
-                        </Route>
-                        <Route path="/German/WhoGer">
-                            <WhoGer />
-                        </Route>
-                        <Route path="/German/WhatGer">
-                            <WhatGer />
-                        </Route>
-                        <Route path="/German/WhyGer">
-                            <WhyGer />
-                        </Route>
-                        <Route path="/German/HowGer">
-                            <HowGer />
-                        </Route>
-                        <Route path="/German/TradGer">
-                            <TradGer />
-                        </Route>
-                        <Route path="/German/JFTGer">
-                            <JFTGer />
-                        </Route>
-                        <Route path="/German/WDRGer">
-                            <WDRGer />
-                        </Route>
-                        {/* French */}
-                        <Route path="/French/PamFre">
-                            <PamFre />
-                        </Route>
-                        <Route path="/French/WhoFre">
-                            <WhoFre />
-                        </Route>
-                        <Route path="/French/WhatFre">
-                            <WhatFre />
-                        </Route>
-                        <Route path="/French/WhyFre">
-                            <WhyFre />
-                        </Route>
-                        <Route path="/French/HowFre">
-                            <HowFre />
-                        </Route>
-                        <Route path="/French/TradFre">
-                            <TradFre />
-                        </Route>
-                        <Route path="/French/JFTFre">
-                            <JFTFre />
-                        </Route>
-                        <Route path="/French/WDRFre">
-                            <WDRFre />
-                        </Route>
-                        {/* Finnish */}
-                        <Route path="/Finnish/PamFin">
-                            <PamFin />
-                        </Route>
-                        <Route path="/Finnish/WhoFin">
-                            <WhoFin />
-                        </Route>
-                        <Route path="/Finnish/WhatFin">
-                            <WhatFin />
-                        </Route>
-                        <Route path="/Finnish/WhyFin">
-                            <WhyFin />
-                        </Route>
-                        <Route path="/Finnish/HowFin">
-                            <HowFin />
-                        </Route>
-                        <Route path="/Finnish/TradFin">
-                            <TradFin />
-                        </Route>
-                        <Route path="/Finnish/JFTFin">
-                            <JFTFin />
-                        </Route>
-                        <Route path="/Finnish/WDRFin">
-                            <WDRFin />
-                        </Route>
+                        <Route path="/Norwegian/PamNor" element={<PamNor/>}/>
+                        <Route path="/Norwegian/WhoNor" element={<WhoNor/>}/>
+                        <Route path="/Norwegian/WhatNor" element={<WhatNor/>}/>
+                        <Route path="/Norwegian/WhyNor" element={<WhyNor/>}/>
+                        <Route path="/Norwegian/HowNor" element={<HowNor/>}/>
+                        <Route path="/Norwegian/TradNor" element={<TradNor/>}/>
+                        <Route path="/Norwegian/JFTNor" element={<JFTNor/>}/>
+                        <Route path="/Norwegian/WDRNor" element={<WDRNor/>}/>
 
-                        <Route path="/">
-                            <Home />
-                        </Route>
-                    </Switch>
+                        {/* Swedish */}
+                        <Route path="/Swedish/PamSwe" element={<PamSwe/>}/>
+                        <Route path="/Swedish/WhoSwe" element={<WhoSwe/>}/>
+                        <Route path="/Swedish/WhatSwe" element={<WhatSwe/>}/>
+                        <Route path="/Swedish/WhySwe" element={<WhySwe/>}/>
+                        <Route path="/Swedish/HowSwe" element={<HowSwe/>}/>
+                        <Route path="/Swedish/TradSwe" element={<TradSwe/>}/>
+                        <Route path="/Swedish/JFTSwe" element={<JFTSwe/>}/>
+                        <Route path="/Swedish/WDRSwe" element={<WDRSwe/>}/>
+                        {/* Danish */}
+                        <Route path="/Danish/PamDan" element={<PamDan/>}/>
+                        <Route path="/Danish/WhoDan" element={<WhoDan/>}/>
+                        <Route path="/Danish/WhatDan" element={<WhatDan/>}/>
+                        <Route path="/Danish/WhyDan" element={<WhyDan/>}/>
+                        <Route path="/Danish/HowDan" element={<HowDan/>}/>
+                        <Route path="/Danish/TradDan" element={<TradDan/>}/>
+                        <Route path="/Danish/JFTDan" element={<JFTDan/>}/>
+                        <Route path="/Danish/WDRDan" element={<WDRDan/>}/>
+
+                        {/* Dutch */}
+                        <Route path="/Dutch/PamDut" element={<PamDut/>}/>
+                        <Route path="/Dutch/WhoDut" element={<WhoDut/>}/>
+                        <Route path="/Dutch/WhatDut" element={<WhatDut/>}/>
+                        <Route path="/Dutch/WhyDut" element={<WhyDut/>}/>
+                        <Route path="/Dutch/HowDut" element={<HowDut/>}/>
+                        <Route path="/Dutch/TradDut" element={<TradDut/>}/>
+                        <Route path="/Dutch/JFTDut" element={<JFTDut/>}/>
+                        <Route path="/Dutch/WDRDut" element={<WDRDut/>}/>
+
+                        {/* German */}
+                        <Route path="/German/PamGer" element={<PamGer/>}/>
+                        <Route path="/German/WhoGer" element={<WhoGer/>}/>
+                        <Route path="/German/WhatGer" element={<WhatGer/>}/>
+                        <Route path="/German/WhyGer" element={<WhyGer/>}/>
+                        <Route path="/German/HowGer" element={<HowGer/>}/>
+                        <Route path="/German/TradGer" element={<TradGer/>}/>
+                        <Route path="/German/JFTGer" element={<JFTGer/>}/>
+                        <Route path="/German/WDRGer" element={<WDRGer/>}/>
+                        {/* French */}
+                        <Route path="/French/PamFre" element={<PamFre/>}/>
+                        <Route path="/French/WhoFre" element={<WhoFre/>}/>
+                        <Route path="/French/WhatFre" element={<WhatFre/>}/>
+                        <Route path="/French/WhyFre" element={<WhyFre/>}/>
+                        <Route path="/French/HowFre" element={<HowFre/>}/>
+                        <Route path="/French/TradFre" element={<TradFre/>}/>
+                        <Route path="/French/JFTFre" element={<JFTFre/>}/>
+                        <Route path="/French/WDRFre" element={<WDRFre/>}/>
+
+                        {/* Finnish */}
+                        <Route path="/Finnish/PamFin" element={<PamFin/>}/>
+                        <Route path="/Finnish/WhoFin" element={<WhoFin/>}/>
+                        <Route path="/Finnish/WhatFin" element={<WhatFin/>}/>
+                        <Route path="/Finnish/WhyFin" element={<WhyFin/>}/>
+                        <Route path="/Finnish/HowFin" element={<HowFin/>}/>
+                        <Route path="/Finnish/TradFin" element={<TradFin/>}/>
+                        <Route path="/Finnish/JFTFin" element={<JFTFin/>}/>
+                        <Route path="/Finnish/WDRFin" element={<WDRFin/>}/>
+
+
+                        <Route path="/" element={<Home/>}/>
+                    </Routes>
                 </div>
             </Router>
         </>
     )
 }
+
 export default App;

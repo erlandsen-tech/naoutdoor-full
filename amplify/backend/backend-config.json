@@ -1,0 +1,45 @@
+{
+  "api": {
+    "naoutdoor1": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "function": {
+    "memberRegistration": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_memberRegistration_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "memberRegistration"
+        }
+      ]
+    },
+    "AMPLIFY_function_memberRegistration_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "memberRegistration"
+        }
+      ]
+    }
+  }
+}

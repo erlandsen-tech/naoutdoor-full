@@ -1,0 +1,26 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify63c450dd4bf64-staging-205442-authRole",
+      "UnauthRoleArn": "arn:aws:iam::640882666897:role/amplify-amplify63c450dd4bf64-staging-205442-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::640882666897:role/amplify-amplify63c450dd4bf64-staging-205442-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-amplify63c450dd4bf64-staging-205442-deployment",
+      "UnauthRoleName": "amplify-amplify63c450dd4bf64-staging-205442-unauthRole",
+      "StackName": "amplify-amplify63c450dd4bf64-staging-205442",
+      "StackId": "arn:aws:cloudformation:eu-north-1:640882666897:stack/amplify-amplify63c450dd4bf64-staging-205442/7db12e20-a68c-11ee-beba-0ec568337136",
+      "AmplifyAppId": "d1cfpw9dly5i31"
+    },
+    "categories": {
+      "function": {
+        "memberRegistration": {
+          "deploymentBucketName": "amplify-amplify63c450dd4bf64-staging-205442-deployment",
+          "s3Key": "amplify-builds/memberRegistration-57586c537a6e56685a76-build.zip"
+        }
+      },
+      "api": {
+        "naoutdoor1": {}
+      }
+    }
+  }
+}

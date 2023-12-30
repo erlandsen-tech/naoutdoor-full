@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Header from './Header';
 
 
 const Readings = () => {
@@ -73,7 +72,7 @@ const Readings = () => {
             </div>
             <div className="fixed-bottom footer">
                 <Link to="/">
-                    <img className="mx-auto d-block" src="img/left-arrow.png" id="back" alt="Back" />
+                    <img className="mx-auto d-block" src="/img/left-arrow.png" id="back" alt="Back" />
                 </Link>
             </div>
         </div>

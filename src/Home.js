@@ -37,6 +37,12 @@ const Home = () => {
                                 <img src="/img/mail.png" className="img-responsive mx-auto d-block" alt="Contact"/>
                             </Link>
                         </div>
+                        <div className="col-3">
+                            <Link to="/registration">
+                                <img src="/img/register.png" className="img-responsive mx-auto d-block"
+                                     alt="Registration"/>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -25,6 +25,7 @@ header {
     background-color: #fff;
     z-index: 999;
 }
+
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
@@ -62,6 +63,7 @@ header {
     width: auto;
 }
 
+
 img {
     display: block;
     width: 100%;
@@ -73,7 +75,7 @@ img {
 
 .logotext-img {
     padding: 20px 10px;
-    margin:  20px auto;
+    margin: 20px auto;
     display: block;
     max-width: 100%;
 }
@@ -84,6 +86,7 @@ header-image {
     background-color: transparent;
 
 }
+
 header-image img {
     position: absolute;
     top: 50%;
@@ -139,7 +142,7 @@ header-image img {
 }
 
 .img-thumb {
-    width:auto;
+    width: auto;
     max-width: 70px;
 }
 
@@ -160,7 +163,7 @@ header-image img {
     margin: 0;
 }
 
-.text-mote  {
+.text-mote {
     color: royalblue;
 }
 
@@ -209,9 +212,10 @@ header-image img {
     display: flex;
 }
 
-.btn-dark{
+.btn-dark {
     color: royalblue
 }
+
 .box-pam-1 {
     width: 100vw;
 }
@@ -294,8 +298,9 @@ header-image img {
     display: flex;
     flex-wrap: nowrap;
 }
+
 /* in your CSS file */
-.bakken-test{
+.bakken-test {
     width: 100vw; /* full viewport width */
     height: 100vh; /* full viewport height */
     overflow: auto; /* allow scrolling */
@@ -330,3 +335,8 @@ header-image img {
 .kon-box-2 {
     margin-top: -20px;
 }
+
+.registration-page .amplify-label {
+    color: royalblue;
+}
+

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/members/{id}": {
+      "name": "/members/{id}",
+      "lambdaFunction": "validateCaptcha",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

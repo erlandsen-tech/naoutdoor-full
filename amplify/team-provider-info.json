@@ -13,13 +13,8 @@
     },
     "categories": {
       "function": {
-        "memberRegistration": {
-          "deploymentBucketName": "amplify-amplify63c450dd4bf64-staging-205442-deployment",
-          "s3Key": "amplify-builds/memberRegistration-57586c537a6e56685a76-build.zip"
-        }
-      },
-      "api": {
-        "naoutdoor1": {}
+        "memberfunction1": {},
+        "validateCaptcha": {}
       }
     }
   }

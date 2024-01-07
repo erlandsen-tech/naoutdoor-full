@@ -1,6 +1,5 @@
 import React from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
-import {MemberCreateForm} from "../ui-components";
 
 const MemberCreateFormWithRecaptcha = (props) => {
     const recaptchaRef = React.createRef();
@@ -13,7 +12,6 @@ const MemberCreateFormWithRecaptcha = (props) => {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <MemberCreateForm {...props} />
             <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey="6LdVh0EpAAAAACwS0nvLty7JKrvZU3_ixbsSH0J0"

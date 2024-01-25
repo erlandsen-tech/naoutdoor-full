@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "validateCaptcha",
+            "createMember",
             {
               "Fn::Join": [
                 "",
                 [
-                  "validateCaptcha",
+                  "createMember",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "naoutdoor1LambdaRolefc10a3d1",
+            "naoutdoor1LambdaRole423fd9d8",
             {
               "Fn::Join": [
                 "",
                 [
-                  "naoutdoor1LambdaRolefc10a3d1",
+                  "naoutdoor1LambdaRole423fd9d8",
                   "-",
                   {
                     "Ref": "env"

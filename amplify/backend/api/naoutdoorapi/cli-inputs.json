@@ -5,6 +5,26 @@
       "name": "/members/{id}",
       "lambdaFunction": "validateCaptcha",
       "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/members/list": {
+      "name": "/members/list",
+      "lambdaFunction": "listMembers",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/members/add": {
+      "name": "/members/add",
+      "lambdaFunction": "createMember",
+      "permissions": {
         "setting": "open"
       }
     }

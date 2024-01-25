@@ -85,6 +85,7 @@ import WDRFin from './pamflets/Finnish/WDRFin';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from "./Header";
+import GifPage from "./Success";
 
 function usePageViews() {
     let location = window.location.pathname;
@@ -102,6 +103,7 @@ function App() {
                     <Header/>
                     <Routes>
                         <Route path="/registration" element={<Registration/>}/>
+                        <Route path="/success" element={<GifPage/>}/>
                         <Route path="/readings" element={<Readings/>}/>
                         <Route path="/seventhtradition" element={<SeventhTradition/>}/>
                         <Route path="/meetings" element={<Meetings/>}/>

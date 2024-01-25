@@ -9,12 +9,32 @@
       "UnauthRoleName": "amplify-amplify63c450dd4bf64-staging-205442-unauthRole",
       "StackName": "amplify-amplify63c450dd4bf64-staging-205442",
       "StackId": "arn:aws:cloudformation:eu-north-1:640882666897:stack/amplify-amplify63c450dd4bf64-staging-205442/7db12e20-a68c-11ee-beba-0ec568337136",
-      "AmplifyAppId": "d1cfpw9dly5i31"
+      "AmplifyAppId": "d1cfpw9dly5i31",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-amplify63c450dd4bf64-staging-205442-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "function": {
-        "memberfunction1": {},
-        "validateCaptcha": {}
+        "validateCaptcha": {
+          "deploymentBucketName": "amplify-amplify63c450dd4bf64-staging-205442-deployment",
+          "s3Key": "amplify-builds/validateCaptcha-467a7a614b4c57523150-build.zip"
+        },
+        "listMembers": {
+          "deploymentBucketName": "amplify-amplify63c450dd4bf64-staging-205442-deployment",
+          "s3Key": "amplify-builds/listMembers-58636e6a4e717352534f-build.zip"
+        },
+        "createMember": {
+          "deploymentBucketName": "amplify-amplify63c450dd4bf64-staging-205442-deployment",
+          "s3Key": "amplify-builds/createMember-65795452556d61696652-build.zip"
+        }
+      },
+      "api": {
+        "naoutdoorapi": {}
+      },
+      "storage": {
+        "naoutdoorDb": {}
+      },
+      "auth": {
+        "naoutdoor1": {}
       }
     }
   }

@@ -1,7 +1,6 @@
 import React from "react";
 import MemberCreateFormWithRecaptcha from "./custom-ui-components/MemberCreateFormWithRecaptcha";
 
-
 const Registration = () => {
     return (
         <div className="container registration-page">

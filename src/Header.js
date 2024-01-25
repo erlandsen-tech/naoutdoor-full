@@ -9,7 +9,7 @@ function Header() {
         width: window.innerWidth,
     })
     const location = useLocation()
-    const excludedPaths = ['/how', '/jft', '/trad', '/wdr', '/what', '/who', '/why', '/manspe', '/manjft', '/meetings', '/slope'];
+    const excludedPaths = ['/how', '/jft', '/trad', '/wdr', '/what', '/who', '/why', '/manspe', '/manjft', '/meetings', '/slope', '/success'];
     React.useEffect(() => {
         function handleResize() {
             setDimensions({

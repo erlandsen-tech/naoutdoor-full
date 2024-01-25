@@ -1,98 +1,126 @@
-import React from 'react';
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import axios from 'axios';
+import React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
+
+const RECAPTCHA_KEY = "6LdUh0EpAAAAAE6xRU0oK5qfmYVk5WINZYep8vs_";
 
 const RegistrationForm = () => {
-    const navigate = useNavigate();
-    const [values, setValues] = useState({
-        homeGroup: "",
-        cleanDate: ""
-    });
+  const navigate = useNavigate();
+  const [values, setValues] = useState({
+    homeGroup: "",
+    cleanDate: "",
+  });
 
-    const handleInputChange = (event) => {
-        event.preventDefault();
+  const handleInputChange = (event) => {
+    event.preventDefault();
 
-        const {name, value} = event.target;
-        setValues((values) => ({
-            ...values,
-            [name]: value
-        }));
-    };
+    const { name, value } = event.target;
+    setValues((values) => ({
+      ...values,
+      [name]: value,
+    }));
+  };
 
-    const [submitted, setSubmitted] = useState(false);
-    const [valid, setValid] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [valid, setValid] = useState(false);
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (values.homeGroup && values.cleanDate) {
-            setValid(true);
-            try {
-                const response = await axios.post('https://ave6t20ye8.execute-api.eu-north-1.amazonaws.com/staging/members/add', values); // Replace '/api/endpoint' with your actual API endpoint
-                console.log(response.data);
-            } catch (error) {
-                console.error('Failed to post form values:', error);
-            }
-        }
-        console.log(values)
-        setSubmitted(true);
-    };
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
 
-    return (
-        <div className="form-container">
-            <form className="register-form" onSubmit={handleSubmit}>
-                {submitted && valid && (
-                    navigate("/success")
-                )}
-                {!valid && (
-                    <div className="form-group">
-                        <input
-                            className="form-control"
-                            type="text"
-                            placeholder="Home Group"
-                            name="homeGroup"
-                            value={values.homeGroup}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                )}
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (values.homeGroup && values.cleanDate && recaptchaValue) {
+      setValid(true);
+      try {
+        console.log(`sending values ${values}`);
+        const response = await axios.post(
+          "https://ave6t20ye8.execute-api.eu-north-1.amazonaws.com/staging/members/add",
+          values,
+          recaptchaValue
+        ); // Replace '/api/endpoint' with your actual API endpoint
+        console.log(response.data);
+      } catch (error) {
+        console.error("Failed to post form values:", error);
+      }
+    }
+    console.log(values);
+    setSubmitted(true);
+  };
 
-                {submitted && !values.homeGroup && (
-                    <span id="first-name-error">Please enter home group</span>
-                )}
+  useEffect(() => {
+    if (submitted && valid) {
+      navigate("/success");
+    }
+  }, [submitted, valid, navigate]);
 
-                {!valid && (
-                    <div className="form-group">
-                        <input
-                            className="form-control"
-                            type="text"
-                            placeholder="Clean Date"
-                            name="cleanDate"
-                            value={values.cleanDate}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                )}
+  return (
+    <div className="form-container">
+      <form className="register-form" onSubmit={handleSubmit}>
+        {!valid && (
+          <div className="form-group">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Home Group"
+              name="homeGroup"
+              value={values.homeGroup}
+              onChange={handleInputChange}
+            />
+          </div>
+        )}
 
-                {submitted && !values.cleanDate && (
-                    <span id="last-name-error">Please enter a Clean Date</span>
-                )}
-                {!valid && (
-                    <div className="form-group">
-                        <button className="btn btn-primary" type="submit" style={{marginBottom: '1vh'}}>
-                            Register
-                        </button>
-                    </div>
-                )}
-            </form>
-        </div>
-    );
-}
+        {submitted && !values.homeGroup && (
+          <span id="first-name-error">Please enter home group</span>
+        )}
+
+        {!valid && (
+          <div className="form-group">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Clean Date"
+              name="cleanDate"
+              value={values.cleanDate}
+              onChange={handleInputChange}
+            />
+          </div>
+        )}
+
+        {submitted && !values.cleanDate && (
+          <span id="last-name-error">Please enter a Clean Date</span>
+        )}
+
+        {!valid && (
+          <div className="form-group">
+            <ReCAPTCHA
+              sitekey={RECAPTCHA_KEY}
+              onChange={handleRecaptchaChange}
+            />
+          </div>
+        )}
+
+        {!valid && (
+          <div className="form-group">
+            <button
+              className="btn btn-primary"
+              type="submit"
+              style={{ marginBottom: "1vh" }}
+            >
+              Register
+            </button>
+          </div>
+        )}
+      </form>
+    </div>
+  );
+};
 
 const MemberCreateFormWithRecaptcha = (props) => {
-    return (
-        <RegistrationForm/>
-    );
+  return <RegistrationForm />;
 };
 
 export default MemberCreateFormWithRecaptcha;

@@ -24,7 +24,8 @@
         },
         "createMember": {
           "deploymentBucketName": "amplify-amplify63c450dd4bf64-staging-205442-deployment",
-          "s3Key": "amplify-builds/createMember-65795452556d61696652-build.zip"
+          "s3Key": "amplify-builds/createMember-4245726b463553424a77-build.zip",
+          "secretsPathAmplifyAppId": "d1cfpw9dly5i31"
         }
       },
       "api": {

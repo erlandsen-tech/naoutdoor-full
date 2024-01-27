@@ -36,12 +36,16 @@ const RegistrationForm = () => {
     if (values.homeGroup && values.cleanDate && recaptchaValue) {
       setValid(true);
       try {
-        console.log(`sending values ${values}`);
+        console.log(
+          `sending values ${values.cleanDate} and ${values.homeGroup} and ${recaptchaValue} to API`
+        );
         const response = await axios.post(
           "https://ave6t20ye8.execute-api.eu-north-1.amazonaws.com/staging/members/add",
-          values,
-          recaptchaValue
-        ); // Replace '/api/endpoint' with your actual API endpoint
+          {
+            ...values,
+            recaptchaValue,
+          }
+        );
         console.log(response.data);
       } catch (error) {
         console.error("Failed to post form values:", error);

@@ -5,9 +5,16 @@ import requests
 
 def handler(event, context):
     print("received event:")
-    print(event)
-    recaptcha_response = event["body"]["recaptchaValue"]
-    secret_key = "supersecretkey"
+    body = json.loads(event["body"])  # Parse the body into a Python dictionary
+    print(body)
+    recaptcha_response = body["recaptchaValue"]
+    client = boto3.client("ssm")
+    secret_key = client.get_parameter(
+        Name="reCAPTCHAkey",
+        WithDecryption=True,
+    )[
+        "Parameter"
+    ]["Value"]
     response = requests.post(
         "https://www.google.com/recaptcha/api/siteverify",
         data={"secret": secret_key, "response": recaptcha_response},

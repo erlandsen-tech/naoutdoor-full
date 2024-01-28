@@ -22,6 +22,13 @@ const RegistrationForm = () => {
       [name]: value,
     }));
   };
+  const resetForm = () => {
+    setValues({
+      homeGroup: "",
+      cleanDate: "",
+      // Add other form fields here as needed
+    });
+  };
 
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
@@ -36,9 +43,6 @@ const RegistrationForm = () => {
     if (values.homeGroup && values.cleanDate && recaptchaValue) {
       setValid(true);
       try {
-        console.log(
-          `sending values ${values.cleanDate} and ${values.homeGroup} and ${recaptchaValue} to API`
-        );
         const response = await axios.post(
           "https://ave6t20ye8.execute-api.eu-north-1.amazonaws.com/staging/members/add",
           {
@@ -46,18 +50,21 @@ const RegistrationForm = () => {
             recaptchaValue,
           }
         );
-        console.log(response.data);
+        if (response.status === 200) {
+          setSubmitted(true);
+        }
       } catch (error) {
         console.error("Failed to post form values:", error);
       }
     }
-    console.log(values);
-    setSubmitted(true);
   };
 
   useEffect(() => {
     if (submitted && valid) {
       navigate("/success");
+    } else if (submitted && !valid) {
+      window.alert("Failed to submit form. Please try again."); // Show an alert dialog with the error message
+      resetForm();
     }
   }, [submitted, valid, navigate]);
 

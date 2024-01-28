@@ -31,7 +31,7 @@ def handler(event, context):
 
     # Write homegroup and cleandate to the database
     table.put_item(
-        Id=str(uuid.uuid4()), Item={"homeGroup": homeGroup, "cleanDate": cleanDate}
+        Item={"homeGroup": homeGroup, "cleanDate": cleanDate, "id": str(uuid.uuid4())}
     )
 
     return {

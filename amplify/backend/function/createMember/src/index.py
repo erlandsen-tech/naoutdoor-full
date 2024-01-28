@@ -1,6 +1,7 @@
 import json
 import boto3
 import requests
+import uuid
 
 
 def handler(event, context):
@@ -29,7 +30,9 @@ def handler(event, context):
     table = dynamodb.Table("members-staging")
 
     # Write homegroup and cleandate to the database
-    table.put_item(Item={"homeGroup": homeGroup, "cleanDate": cleanDate})
+    table.put_item(
+        Id=str(uuid.uuid4()), Item={"homeGroup": homeGroup, "cleanDate": cleanDate}
+    )
 
     return {
         "statusCode": 200,

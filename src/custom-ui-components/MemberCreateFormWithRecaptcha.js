@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"; // Import the CSS
+import { format } from "date-fns";
 
 const RECAPTCHA_KEY = "6LdUh0EpAAAAAE6xRU0oK5qfmYVk5WINZYep8vs_";
 
@@ -47,6 +50,7 @@ const RegistrationForm = () => {
           "https://ave6t20ye8.execute-api.eu-north-1.amazonaws.com/staging/members/add",
           {
             ...values,
+            cleanDate: format(values.cleanDate, "dd-MM-yyyy"),
             recaptchaValue,
           }
         );
@@ -73,10 +77,10 @@ const RegistrationForm = () => {
       <form className="register-form" onSubmit={handleSubmit}>
         {!valid && (
           <div className="form-group">
+            <label>HomeGroup:</label>
             <input
               className="form-control"
               type="text"
-              placeholder="Home Group"
               name="homeGroup"
               value={values.homeGroup}
               onChange={handleInputChange}
@@ -90,13 +94,17 @@ const RegistrationForm = () => {
 
         {!valid && (
           <div className="form-group">
-            <input
+            <label>Clean Date:</label>
+            <br></br>
+            <ReactDatePicker
               className="form-control"
-              type="text"
-              placeholder="Clean Date"
-              name="cleanDate"
-              value={values.cleanDate}
-              onChange={handleInputChange}
+              selected={values.cleanDate}
+              onChange={(date) => setValues({ ...values, cleanDate: date })}
+              dateFormat="dd/MM/yyyy"
+              placeholderText="Clean Date"
+              maxDate={new Date()}
+              showMonthDropdown
+              showYearDropdown
             />
           </div>
         )}

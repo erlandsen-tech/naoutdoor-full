@@ -1,4 +1,6 @@
 import React from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -6,52 +8,55 @@ import axios from "axios";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; // Import the CSS
 import { format } from "date-fns";
+import Select from "react-select";
 
 const RECAPTCHA_KEY = "6LdUh0EpAAAAAE6xRU0oK5qfmYVk5WINZYep8vs_";
 
 const RegistrationForm = () => {
+  useEffect(() => {
+    fetch(
+      "https://valid.layercode.workers.dev/list/countries?format=select&flags=true&value=code"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setCountries(data.countries);
+        setSelectedCountry({ value: "NO", label: "🇳🇴 Norway" });
+        setValues({ ...values, country: "🇳🇴 Norway" });
+      });
+  }, []);
   const navigate = useNavigate();
+  const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState({});
   const [values, setValues] = useState({
     homeGroup: "",
     cleanDate: "",
+    country: "",
+    recaptchaValue: "",
   });
-
-  const handleInputChange = (event) => {
-    event.preventDefault();
-
-    const { name, value } = event.target;
-    setValues((values) => ({
-      ...values,
-      [name]: value,
-    }));
-  };
   const resetForm = () => {
     setValues({
       homeGroup: "",
       cleanDate: "",
-      // Add other form fields here as needed
+      country: "",
+      recaptchaValue: "",
     });
   };
 
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
-
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (values.homeGroup && values.cleanDate && recaptchaValue) {
+    if (values.homeGroup && values.cleanDate && values.recaptchaValue) {
       setValid(true);
       try {
         const response = await axios.post(
           "https://ave6t20ye8.execute-api.eu-north-1.amazonaws.com/staging/members/add",
           {
-            ...values,
             cleanDate: format(values.cleanDate, "dd-MM-yyyy"),
-            recaptchaValue,
+            country: values.country,
+            homeGroup: values.homeGroup,
+            recaptchaValue: values.recaptchaValue,
           }
         );
         if (response.status === 200) {
@@ -73,68 +78,61 @@ const RegistrationForm = () => {
   }, [submitted, valid, navigate]);
 
   return (
-    <div className="form-container">
-      <form className="register-form" onSubmit={handleSubmit}>
-        {!valid && (
-          <div className="form-group">
-            <label>HomeGroup:</label>
-            <input
-              className="form-control"
-              type="text"
-              name="homeGroup"
-              value={values.homeGroup}
-              onChange={handleInputChange}
-            />
-          </div>
-        )}
-
-        {submitted && !values.homeGroup && (
-          <span id="first-name-error">Please enter home group</span>
-        )}
-
-        {!valid && (
-          <div className="form-group">
-            <label>Clean Date:</label>
-            <br></br>
-            <ReactDatePicker
-              className="form-control"
-              selected={values.cleanDate}
-              onChange={(date) => setValues({ ...values, cleanDate: date })}
-              dateFormat="dd/MM/yyyy"
-              placeholderText="Clean Date"
-              maxDate={new Date()}
-              showMonthDropdown
-              showYearDropdown
-            />
-          </div>
-        )}
-
-        {submitted && !values.cleanDate && (
-          <span id="last-name-error">Please enter a Clean Date</span>
-        )}
-
-        {!valid && (
-          <div className="form-group">
-            <ReCAPTCHA
-              sitekey={RECAPTCHA_KEY}
-              onChange={handleRecaptchaChange}
-            />
-          </div>
-        )}
-
-        {!valid && (
-          <div className="form-group">
-            <button
-              className="btn btn-primary"
-              type="submit"
-              style={{ marginBottom: "1vh" }}
-            >
-              Register
-            </button>
-          </div>
-        )}
-      </form>
-    </div>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formHomeGrup">
+        <Form.Control
+          type="text"
+          placeholder="Homegroup"
+          value={values.homeGroup}
+          onChange={(e) => setValues({ ...values, homeGroup: e.target.value })}
+        />
+      </Form.Group>
+      {!valid && (
+        <Form.Group className="mb-3" controlId="formCleanDate">
+          <ReactDatePicker
+            selected={values.cleanDate}
+            onChange={(date) => setValues({ ...values, cleanDate: date })}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Cleandate"
+            maxDate={new Date()}
+            showMonthDropdown
+            showYearDropdown
+          />
+        </Form.Group>
+      )}
+      {!valid && (
+        <Form.Group className="mb-3" controlId="formRecaptcha">
+          <ReCAPTCHA
+            sitekey={RECAPTCHA_KEY}
+            onChange={(value) =>
+              setValues({ ...values, recaptchaValue: value })
+            }
+          />
+        </Form.Group>
+      )}
+      <Form.Group className="mb-3" controlId="formCountry">
+        <Select
+          options={countries}
+          value={selectedCountry}
+          onChange={(selectedCountry) => {
+            setValues({ ...values, country: selectedCountry.label });
+            setSelectedCountry(selectedCountry);
+          }}
+        />
+      </Form.Group>
+      {!valid && (
+        <Form.Group className="mb-3" controlId="formSubmitButton">
+          <Button
+            className="btn btn-primary"
+            type="submit"
+            style={{ marginTop: "20px", marginBottom: "5vh" }}
+            onClick={console.log(values)}
+          >
+            Register
+          </Button>
+        </Form.Group>
+      )}
+    </Form>
   );
 };
 

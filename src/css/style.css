@@ -25,7 +25,19 @@ header {
     background-color: #fff;
     z-index: 999;
 }
-
+.form-group {
+    margin: 20px 0;
+  }
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .country-select {
+    margin-bottom: 20px;
+  }
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;

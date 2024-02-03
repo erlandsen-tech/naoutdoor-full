@@ -1,0 +1,141 @@
+{
+  "api": {
+    "naoutdoorapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "validateCaptcha"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "listMembers"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "createMember"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "naoutdoor1": {
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "managed"
+    }
+  },
+  "function": {
+    "createMember": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "listMembers": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "validateCaptcha": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_createMember_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createMember"
+        }
+      ]
+    },
+    "AMPLIFY_function_createMember_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createMember"
+        }
+      ]
+    },
+    "AMPLIFY_function_createMember_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "createMember"
+        }
+      ]
+    },
+    "AMPLIFY_function_listMembers_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "listMembers"
+        }
+      ]
+    },
+    "AMPLIFY_function_listMembers_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "listMembers"
+        }
+      ]
+    },
+    "AMPLIFY_function_validateCaptcha_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "validateCaptcha"
+        }
+      ]
+    },
+    "AMPLIFY_function_validateCaptcha_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "validateCaptcha"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "naoutdoorDb": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}

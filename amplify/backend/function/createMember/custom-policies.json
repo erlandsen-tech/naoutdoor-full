@@ -1,0 +1,20 @@
+[
+    {
+        "Effect": "Allow",
+        "Action": [
+            "dynamodb:PutItem",
+        ],
+        "Resource": [
+            "arn:aws:dynamodb:eu-north-1:640882666897:table/members-staging"
+        ]
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ssm:GetParameter"
+        ],
+        "Resource": [
+            "arn:aws:ssm:eu-north-1:640882666897:parameter/amplify/d1cfpw9dly5i31/staging/AMPLIFY_createMember_reCAPTCHAkey"
+        ]
+    }
+]

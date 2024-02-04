@@ -100,6 +100,10 @@ const RegistrationForm = () => {
             scrollableMonthYearDropdown={true}
             scrollableYearDropdown={true}
             yearDropdownItemNumber={100}
+            disabledKeyboardNavigation
+            customInput={<input disabled={true} style={{ width: "100%" }} />}
+            withPortal
+            onChangeRaw={(e) => e.preventDefault()}
           />
         </Form.Group>
       )}

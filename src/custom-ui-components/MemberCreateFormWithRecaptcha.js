@@ -95,8 +95,11 @@ const RegistrationForm = () => {
             dateFormat="dd/MM/yyyy"
             placeholderText="Cleandate"
             maxDate={new Date()}
-            showMonthDropdown
-            showYearDropdown
+            showMonthDropdown={true}
+            showYearDropdown={true}
+            scrollableMonthYearDropdown={true}
+            scrollableYearDropdown={true}
+            yearDropdownItemNumber={100}
           />
         </Form.Group>
       )}
@@ -126,7 +129,6 @@ const RegistrationForm = () => {
             className="btn btn-primary"
             type="submit"
             style={{ marginTop: "20px", marginBottom: "5vh" }}
-            onClick={console.log(values)}
           >
             Register
           </Button>

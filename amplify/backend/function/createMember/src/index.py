@@ -6,6 +6,7 @@ import uuid
 
 def handler(event, context):
     print("received event:")
+    print(event)
     body = json.loads(event["body"])  # Parse the body into a Python dictionary
     print(body)
     recaptcha_response = body["recaptchaValue"]

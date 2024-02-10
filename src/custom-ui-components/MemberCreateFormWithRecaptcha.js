@@ -51,12 +51,17 @@ const RegistrationForm = () => {
       setValid(true);
       try {
         const response = await axios.post(
-          "https://qhq5lx7mtc.execute-api.eu-north-1.amazonaws.com/staging/members/add",
+          "https://qhq5lx7mtc.execute-api.eu-north-1.amazonaws.com/staging/createMember-staging",
           {
             cleanDate: format(values.cleanDate, "dd-MM-yyyy"),
             country: values.country,
             homeGroup: values.homeGroup,
             recaptchaValue: values.recaptchaValue,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
         );
         if (response.status === 200) {

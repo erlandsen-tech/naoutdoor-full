@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/add": {
+      "name": "/add",
+      "lambdaFunction": "createMember",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/list": {
+      "name": "/list",
+      "lambdaFunction": "listMembers",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

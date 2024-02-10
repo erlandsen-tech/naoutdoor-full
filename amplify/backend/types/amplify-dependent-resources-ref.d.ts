@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "naoutdoorapi": {
+    "members": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"

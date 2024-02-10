@@ -2,7 +2,7 @@
     {
         "Effect": "Allow",
         "Action": [
-            "dynamodb:PutItem",
+            "dynamodb:PutItem"
         ],
         "Resource": [
             "arn:aws:dynamodb:eu-north-1:640882666897:table/members-staging"

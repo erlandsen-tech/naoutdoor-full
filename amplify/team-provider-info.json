@@ -24,18 +24,18 @@
         },
         "createMember": {
           "deploymentBucketName": "amplify-amplify63c450dd4bf64-staging-205442-deployment",
-          "s3Key": "amplify-builds/createMember-3544486870337a7a7553-build.zip",
+          "s3Key": "amplify-builds/createMember-386f685a44364a30494e-build.zip",
           "secretsPathAmplifyAppId": "d1cfpw9dly5i31"
         }
-      },
-      "api": {
-        "naoutdoorapi": {}
       },
       "storage": {
         "naoutdoorDb": {}
       },
       "auth": {
         "naoutdoor1": {}
+      },
+      "api": {
+        "members": {}
       }
     }
   }

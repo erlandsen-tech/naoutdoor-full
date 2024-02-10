@@ -1,6 +1,6 @@
 {
   "api": {
-    "naoutdoorapi": {
+    "members": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "validateCaptcha"
+          "resourceName": "createMember"
         },
         {
           "attributes": [
@@ -17,14 +17,6 @@
           ],
           "category": "function",
           "resourceName": "listMembers"
-        },
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "createMember"
         }
       ],
       "providerPlugin": "awscloudformation",

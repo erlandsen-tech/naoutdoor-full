@@ -57,13 +57,9 @@ const RegistrationForm = () => {
             country: values.country,
             homeGroup: values.homeGroup,
             recaptchaValue: values.recaptchaValue,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
           }
         );
+        console.log("Response from API:", response.status);
         if (response.status === 200) {
           setSubmitted(true);
         }

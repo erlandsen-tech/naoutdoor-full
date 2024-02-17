@@ -66,5 +66,16 @@ resource "null_resource" "prepare_files" {
     source_versions       = filemd5("${local.lambda_root}/index.py")
   }
 }
+
+
+resource "null_resource" "cleanup" {
+  provisioner "local-exec" {
+    command = "rm -rf ${local.build_root}"
+  }
+
+  depends_on = [data.archive_file.lambda]
+}
+
+
 data "aws_caller_identity" "current" {}
 

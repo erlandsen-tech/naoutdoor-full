@@ -52,6 +52,39 @@ data "aws_iam_policy_document" "assume_role" {
   }
 }
 
+resource "aws_iam_policy" "ssm_get_parameter" {
+  name        = "SSMGetParameterPolicy"
+  description = "Policy that allows access to SSM GetParameter"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ssm:GetParameter",
+      "Resource": "arn:aws:ssm:eu-north-1:640882666897:parameter/amplify/d1cfpw9dly5i31/staging/AMPLIFY_createMember_reCAPTCHAkey"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy_attachment" "ssm_get_parameter_attach" {
+  role       = aws_iam_role.basic_lambda_role.name
+  policy_arn = aws_iam_policy.ssm_get_parameter.arn
+}
+
+resource "aws_secretsmanager_secret" "example" {
+  name        = "example_secret"
+  description = "This is an example secret"
+}
+
+resource "aws_secretsmanager_secret_version" "example" {
+  secret_id     = aws_secretsmanager_secret.example.id
+  secret_string = "supersecret"
+}
+
 output "basic_lambda_role_arn" {
   value = aws_iam_role.basic_lambda_role.arn
 }

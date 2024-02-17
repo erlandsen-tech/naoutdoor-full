@@ -148,3 +148,4 @@ infrastructure/.terraform
 .vscode
 .devcontainer
 .venv
+infrastructure/na_variables.tfvars

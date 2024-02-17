@@ -149,3 +149,5 @@ infrastructure/.terraform
 .devcontainer
 .venv
 infrastructure/na_variables.tfvars
+**/opt/
+**/temp/

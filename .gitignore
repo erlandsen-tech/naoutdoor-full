@@ -141,7 +141,7 @@ amplifytools.xcconfig
 **.sample
 #amplify-do-not-edit-end
 .secrets/
-./infrastructure/build
-./infrastructure/.terraform.lock.hcl
-./infrastructure/terraform.tfstate.backup
-./infrastructure/.terraform/
+infrastructure/build
+infrastructure/.terraform.lock.hcl
+infrastructure/terraform.tfstate.backup
+infrastructure/.terraform

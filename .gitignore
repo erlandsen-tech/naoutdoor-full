@@ -144,3 +144,4 @@ amplifytools.xcconfig
 ./infrastructure/build
 ./infrastructure/.terraform.lock.hcl
 ./infrastructure/terraform.tfstate.backup
+./infrastructure/.terraform/

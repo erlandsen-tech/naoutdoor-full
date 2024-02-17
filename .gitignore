@@ -151,3 +151,4 @@ infrastructure/.terraform
 infrastructure/na_variables.tfvars
 **/opt/
 **/temp/
+**tfstate

@@ -10,7 +10,7 @@ data "archive_file" "lambda" {
   type        = "zip"
   source_dir  = local.build_root
   output_path = "./build/${local.lambda_function_folder_name}.zip"
-  depends_on  = [null_resource.install_dependencies]
+  depends_on  = [null_resource.install_dependencies, null_resource.prepare_files]
 }
 
 resource "aws_s3_object" "lambda" {
@@ -66,16 +66,6 @@ resource "null_resource" "prepare_files" {
     source_versions       = filemd5("${local.lambda_root}/index.py")
   }
 }
-
-
-resource "null_resource" "cleanup" {
-  provisioner "local-exec" {
-    command = "rm -rf ${local.build_root}"
-  }
-
-  depends_on = [data.archive_file.lambda]
-}
-
 
 data "aws_caller_identity" "current" {}
 

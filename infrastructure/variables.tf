@@ -14,3 +14,9 @@ variable "account_id" {
   type        = string
 
 }
+variable "recaptcha_secret" {
+  description = "The AWS account ID"
+  type        = string
+  sensitive   = true
+
+}

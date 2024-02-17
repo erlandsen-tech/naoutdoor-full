@@ -12,10 +12,11 @@ provider "aws" {
 }
 
 module "lambdas" {
-  source             = "./lambdas"
-  region             = var.region
-  basic_lambda_role  = aws_iam_role.basic_lambda_role.arn
-  environment_prefix = var.environment_prefix
+  source               = "./lambdas"
+  region               = var.region
+  basic_lambda_role    = aws_iam_role.basic_lambda_role.arn
+  environment_prefix   = var.environment_prefix
+  recaptcha_secret_arn = aws_secretsmanager_secret.recaptcha_secret.arn
 }
 
 module "dynamodb" {
@@ -36,6 +37,8 @@ resource "aws_iam_role" "basic_lambda_role" {
     "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
     "arn:aws:iam::aws:policy/service-role/AWSLambdaRole",
     "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
+    aws_iam_policy.secretsmanager_get_parameter.arn,
+
   ]
 }
 
@@ -52,8 +55,8 @@ data "aws_iam_policy_document" "assume_role" {
   }
 }
 
-resource "aws_iam_policy" "ssm_get_parameter" {
-  name        = "SSMGetParameterPolicy"
+resource "aws_iam_policy" "secretsmanager_get_parameter" {
+  name        = "SecretsmanagerSecretPolicy"
   description = "Policy that allows access to SSM GetParameter"
 
   policy = <<EOF
@@ -62,27 +65,33 @@ resource "aws_iam_policy" "ssm_get_parameter" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "ssm:GetParameter",
-      "Resource": "arn:aws:ssm:eu-north-1:640882666897:parameter/amplify/d1cfpw9dly5i31/staging/AMPLIFY_createMember_reCAPTCHAkey"
+      "Action": "secretsmanager:GetSecretValue",
+      "Resource": "${aws_secretsmanager_secret.recaptcha_secret.arn}"
+    },
+        {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:PutItem",
+        "dynamodb:GetItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:Scan",
+        "dynamodb:Query"
+      ],
+      "Resource": "${module.dynamodb.create_member_lambda_arn}"
     }
   ]
 }
 EOF
 }
 
-resource "aws_iam_role_policy_attachment" "ssm_get_parameter_attach" {
-  role       = aws_iam_role.basic_lambda_role.name
-  policy_arn = aws_iam_policy.ssm_get_parameter.arn
+resource "aws_secretsmanager_secret" "recaptcha_secret" {
+  name = "recaptcha_secret"
 }
 
-resource "aws_secretsmanager_secret" "example" {
-  name        = "example_secret"
-  description = "This is an example secret"
-}
-
-resource "aws_secretsmanager_secret_version" "example" {
-  secret_id     = aws_secretsmanager_secret.example.id
-  secret_string = "supersecret"
+resource "aws_secretsmanager_secret_version" "recaptcha_secret" {
+  secret_id     = aws_secretsmanager_secret.recaptcha_secret.id
+  secret_string = var.recaptcha_secret
 }
 
 output "basic_lambda_role_arn" {

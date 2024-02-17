@@ -13,3 +13,7 @@ variable "region" {
   description = "The region where AWS operations will take place"
   type        = string
 }
+
+variable "recaptcha_secret_arn" {
+  type = string
+}

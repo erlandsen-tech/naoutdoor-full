@@ -13,4 +13,5 @@ module "create_member" {
   environment_prefix   = var.environment_prefix
   code_bucket          = resource.aws_s3_bucket.code_bucket.id
   basic_lambda_role    = var.basic_lambda_role
+  recaptcha_secret_arn = var.recaptcha_secret_arn
 }

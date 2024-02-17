@@ -17,3 +17,8 @@ variable "basic_lambda_role" {
   description = "The IAM role for the lambda function"
   type        = string
 }
+
+variable "recaptcha_secret_arn" {
+  type    = string
+  default = null
+}

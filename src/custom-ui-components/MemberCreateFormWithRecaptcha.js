@@ -51,7 +51,7 @@ const RegistrationForm = () => {
       setValid(true);
       try {
         const response = await axios.post(
-          "https://qhq5lx7mtc.execute-api.eu-north-1.amazonaws.com/staging/createMember-staging",
+          "https://n7reowswt2.execute-api.eu-north-1.amazonaws.com/main/createMember",
           {
             cleanDate: format(values.cleanDate, "dd-MM-yyyy"),
             country: values.country,
@@ -59,7 +59,7 @@ const RegistrationForm = () => {
             recaptchaValue: values.recaptchaValue,
           }
         );
-        console.log("Response from API:", response.status);
+        console.log("Response from API:", response);
         if (response.status === 200) {
           setSubmitted(true);
         }

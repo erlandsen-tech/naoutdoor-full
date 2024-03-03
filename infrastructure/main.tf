@@ -27,6 +27,8 @@ module "api" {
   source                    = "./api"
   create_member_lambda_arn  = module.lambdas.create_member_lambda_arn
   create_member_lambda_name = module.lambdas.create_member_lambda_name
+  list_members_lambda_arn   = module.lambdas.list_members_lambda_invoke_arn
+  list_members_lambda_name  = module.lambdas.list_members_lambda_name
 }
 
 resource "aws_iam_role" "basic_lambda_role" {
@@ -58,27 +60,27 @@ data "aws_iam_policy_document" "assume_role" {
 
 data "aws_iam_policy_document" "dynamodb_write" {
   statement {
-    effect = "Allow"
-    actions = ["dynamodb:PutItem","dynamodb:UpdateItem"]
+    effect    = "Allow"
+    actions   = ["dynamodb:PutItem", "dynamodb:UpdateItem"]
     resources = [module.dynamodb.create_member_table_arn]
   }
 }
 
 data "aws_iam_policy_document" "dynamodb_read" {
   statement {
-    effect = "Allow"
-    actions = ["dynamodb:GetItem","dynamodb:Scan"]
+    effect    = "Allow"
+    actions   = ["dynamodb:GetItem", "dynamodb:Scan"]
     resources = [module.dynamodb.create_member_table_arn]
   }
 }
 resource "aws_iam_policy" "dynamodb_write_policy" {
-  name        = "dynamodb_write_policy"
-  policy      = data.aws_iam_policy_document.dynamodb_write.json
+  name   = "dynamodb_write_policy"
+  policy = data.aws_iam_policy_document.dynamodb_write.json
 }
 
 resource "aws_iam_policy" "dynamodb_read_policy" {
-  name        = "dynamodb_read_policy"
-  policy      = data.aws_iam_policy_document.dynamodb_read.json
+  name   = "dynamodb_read_policy"
+  policy = data.aws_iam_policy_document.dynamodb_read.json
 }
 
 resource "aws_iam_policy" "secretsmanager_get_parameter" {

@@ -38,7 +38,8 @@ resource "aws_iam_role" "basic_lambda_role" {
     "arn:aws:iam::aws:policy/service-role/AWSLambdaRole",
     "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
     aws_iam_policy.secretsmanager_get_parameter.arn,
-
+    aws_iam_policy.dynamodb_write.arn,
+    aws_iam_policy.dynamodb_read.arn
   ]
 }
 
@@ -55,6 +56,22 @@ data "aws_iam_policy_document" "assume_role" {
   }
 }
 
+data "aws_iam_policy_document" "dynamodb_write" {
+  statement {
+    effect = "Allow"
+    actions = ["dynamodb:PutItem","dynamodb:UpdateItem"]
+    resources = [module.dynamodb.create_member_table_arn]
+  }
+}
+
+data "aws_iam_policy_document" "dynamodb_read" {
+  statement {
+    effect = "Allow"
+    actions = ["dynamodb:GetItem","dynamodb:Scan"]
+    resources = [module.dynamodb.create_member_table_arn]
+  }
+}
+
 resource "aws_iam_policy" "secretsmanager_get_parameter" {
   name        = "SecretsmanagerSecretPolicy"
   description = "Policy that allows access to SSM GetParameter"
@@ -67,21 +84,7 @@ resource "aws_iam_policy" "secretsmanager_get_parameter" {
       "Effect": "Allow",
       "Action": "secretsmanager:GetSecretValue",
       "Resource": "${aws_secretsmanager_secret.recaptcha_secret.arn}"
-    },
-        {
-      "Effect": "Allow",
-      "Action": [
-        "dynamodb:PutItem",
-        "dynamodb:GetItem",
-        "dynamodb:UpdateItem",
-        "dynamodb:DeleteItem",
-        "dynamodb:Scan",
-        "dynamodb:Query"
-      ],
-      "Resource": "${module.dynamodb.create_member_lambda_arn}"
     }
-  ]
-}
 EOF
 }
 

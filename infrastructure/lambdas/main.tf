@@ -15,3 +15,12 @@ module "create_member" {
   basic_lambda_role    = var.basic_lambda_role
   recaptcha_secret_arn = var.recaptcha_secret_arn
 }
+
+module "list_members" {
+  source               = "./lambda_skeleton"
+  lambda_function_name = "list-members"
+  environment_prefix   = var.environment_prefix
+  code_bucket          = resource.aws_s3_bucket.code_bucket.id
+  basic_lambda_role    = var.basic_lambda_role
+  recaptcha_secret_arn = var.recaptcha_secret_arn
+}

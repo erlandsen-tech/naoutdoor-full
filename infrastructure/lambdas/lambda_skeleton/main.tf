@@ -56,7 +56,7 @@ resource "null_resource" "prepare_files" {
   provisioner "local-exec" {
     command = <<EOF
     mkdir -p ${local.build_root}
-    cp ${local.lambda_root}/* ${local.build_root}
+    cp -r ${local.lambda_root}/* ${local.build_root}
     cp -r ${local.dependencies_root}/* ${local.build_root}
     EOF
   }

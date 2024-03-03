@@ -38,8 +38,8 @@ resource "aws_iam_role" "basic_lambda_role" {
     "arn:aws:iam::aws:policy/service-role/AWSLambdaRole",
     "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole",
     aws_iam_policy.secretsmanager_get_parameter.arn,
-    aws_iam_policy.dynamodb_write.arn,
-    aws_iam_policy.dynamodb_read.arn
+    aws_iam_policy.dynamodb_read_policy.arn,
+    aws_iam_policy.dynamodb_write_policy.arn
   ]
 }
 
@@ -71,6 +71,15 @@ data "aws_iam_policy_document" "dynamodb_read" {
     resources = [module.dynamodb.create_member_table_arn]
   }
 }
+resource "aws_iam_policy" "dynamodb_write_policy" {
+  name        = "dynamodb_write_policy"
+  policy      = data.aws_iam_policy_document.dynamodb_write.json
+}
+
+resource "aws_iam_policy" "dynamodb_read_policy" {
+  name        = "dynamodb_read_policy"
+  policy      = data.aws_iam_policy_document.dynamodb_read.json
+}
 
 resource "aws_iam_policy" "secretsmanager_get_parameter" {
   name        = "SecretsmanagerSecretPolicy"
@@ -85,6 +94,7 @@ resource "aws_iam_policy" "secretsmanager_get_parameter" {
       "Action": "secretsmanager:GetSecretValue",
       "Resource": "${aws_secretsmanager_secret.recaptcha_secret.arn}"
     }
+]}
 EOF
 }
 

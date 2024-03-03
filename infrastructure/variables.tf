@@ -15,7 +15,7 @@ variable "account_id" {
 
 }
 variable "recaptcha_secret" {
-  description = "The AWS account ID"
+  description = "The recaptch secret to use for the recaptcha validation"
   type        = string
   sensitive   = true
 

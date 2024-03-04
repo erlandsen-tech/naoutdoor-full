@@ -10,9 +10,7 @@ def lambda_handler(event, context):
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
     try:
-        print("received event:")
         body = json.loads(event["body"])  # Parse the body into a Python dictionary
-        print(body)
         recaptcha_response = body["recaptchaValue"]
         homeGroup = body["homeGroup"]  # Get the homegroup value from the request body
         cleanDate = body["cleanDate"]  # Get the cleandate value from the request body

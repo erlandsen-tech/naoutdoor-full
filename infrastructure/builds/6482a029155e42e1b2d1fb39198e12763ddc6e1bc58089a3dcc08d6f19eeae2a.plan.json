@@ -1,1 +1,0 @@
-{"filename": "builds/6482a029155e42e1b2d1fb39198e12763ddc6e1bc58089a3dcc08d6f19eeae2a.zip", "runtime": "python3.12", "artifacts_dir": "builds", "build_plan": [["pip", "python3.12", "./../backend/list_members/requirements.txt", null, null], ["zip", "./../backend/list_members", null]]}

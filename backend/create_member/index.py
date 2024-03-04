@@ -61,3 +61,12 @@ def lambda_handler(event, context):
         }
     except Exception as e:
         logger.error("Error occurred: %s", e)
+        return {
+            "statusCode": 500,
+            "headers": {
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "OPTIONS,POST",
+            },
+            "body": json.dumps(str(e))
+    }

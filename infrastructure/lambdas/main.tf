@@ -34,7 +34,7 @@ module "list_members" {
   lambda_role              = var.basic_lambda_role
   store_on_s3              = true
   timeout                  = 300
-  publish                  = true
+  publish                  = false
   s3_bucket                = aws_s3_bucket.code_bucket.id
   logging_log_format       = "JSON"
   logging_system_log_level = "DEBUG"

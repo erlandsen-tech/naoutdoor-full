@@ -37,11 +37,11 @@ def lambda_handler(event, context):
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "POST,OPTIONS,GET",
                 "Content-Type": "application/json"
-            }, 'body': {
+            }, 'body': json.dumps({
                 "total_days": total_days,
                 "country_stats": country_stats,
                 "members_total": members_total,
-            }
+            })
         }
     except Exception as e:
         return {

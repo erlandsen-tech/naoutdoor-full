@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 function Analytics() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch("https://jo6pgm4yp9.execute-api.eu-north-1.amazonaws.com/main/listmembers")
-            .then(response => response.json())
-            .then(result => {
-                setData(result);
+        axios.get("https://q6dbqs0q30.execute-api.eu-north-1.amazonaws.com/listMembers"
+            )
+            .then(response => {
+                setData(response.data);
                 setIsLoading(false);
             })
             .catch(error => {
@@ -21,6 +22,7 @@ function Analytics() {
         return <div>Loading...</div>;
     }
 
+
     return (
         <div>
             <h1>Hello, React!</h1>
@@ -29,7 +31,6 @@ function Analytics() {
                     <p>HomeGroup: {item.HomeGroup}</p>
                     <p>DaysSinceClean: {item.DaysSinceClean}</p>
                     <p>Country: {item.Country}</p>
-                    <p>Id: {item.id}</p>
                 </div>
             ))}
         </div>

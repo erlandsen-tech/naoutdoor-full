@@ -29,6 +29,9 @@ module "api" {
   create_member_lambda_name = module.lambdas.create_member_lambda_name
   list_members_lambda_arn   = module.lambdas.list_members_lambda_invoke_arn
   list_members_lambda_name  = module.lambdas.list_members_lambda_name
+  environment_prefix        = var.environment_prefix
+  region                    = var.region
+  account_id                = var.account_id
 }
 
 resource "aws_iam_role" "basic_lambda_role" {

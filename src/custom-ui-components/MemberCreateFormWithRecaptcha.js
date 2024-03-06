@@ -51,7 +51,7 @@ const RegistrationForm = () => {
       setValid(true);
       try {
         const response = await axios.post(
-          "https://jo6pgm4yp9.execute-api.eu-north-1.amazonaws.com/main/createMember",
+          "https://q6dbqs0q30.execute-api.eu-north-1.amazonaws.com/createMember",
           {
             cleanDate: format(values.cleanDate, "dd-MM-yyyy"),
             country: values.country,

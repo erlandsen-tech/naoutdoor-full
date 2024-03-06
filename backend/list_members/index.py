@@ -20,8 +20,8 @@ def lambda_handler(event, context):
             'statusCode': 200,
             "headers": {
                 "Access-Control-Allow-Headers": "*",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "OPTIONS,GET",
+                "Access-Control-Allow-Origin": "http://localhost:3000",
+                "Access-Control-Allow-Methods": "POST,OPTIONS,GET",
                 "Content-Type": "application/json"
             },            'body': json.dumps(items)
         }
@@ -31,7 +31,7 @@ def lambda_handler(event, context):
             "headers": {
                 "Access-Control-Allow-Headers": "*",
                 "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "OPTIONS,GET",
+                "Access-Control-Allow-Methods": "POST,OPTIONS,GET",
                 "Content-Type": "application/json"
             },
             'body': {'exception': json.dumps(str(e))}

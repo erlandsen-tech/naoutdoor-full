@@ -17,17 +17,18 @@ def lambda_handler(event, context):
         country_stats = {}
 
         for item in items:
+            country = item.get("Country", "Unknown")
             clean_date = datetime.strptime(item["CleanDate"], "%d-%m-%Y")
             days_since_clean = (datetime.now() - clean_date).days
             item["DaysSinceClean"] = days_since_clean
-            if item["Country"] not in country_stats:
-                country_stats["Country"] = {
+            if country not in country_stats:
+                country_stats[country] = {
                     "total_days": days_since_clean,
                     "member_count": 1,
                 }
             else:
-                country_stats["Country"]["total_days"] += days_since_clean
-                country_stats["Country"]["member_count"] += 1
+                country_stats[country]["total_days"] += days_since_clean
+                country_stats[country]["member_count"] += 1
             total_days += days_since_clean
 
         return {

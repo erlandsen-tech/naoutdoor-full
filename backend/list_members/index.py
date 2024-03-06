@@ -34,7 +34,7 @@ def lambda_handler(event, context):
             'statusCode': 200,
             "headers": {
                 "Access-Control-Allow-Headers": "*",
-                "Access-Control-Allow-Origin": "http://localhost:3000",
+                "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "POST,OPTIONS,GET",
                 "Content-Type": "application/json"
             }, 'body': {

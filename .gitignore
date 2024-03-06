@@ -144,6 +144,7 @@ amplifytools.xcconfig
 infrastructure/build
 infrastructure/.terraform.lock.hcl
 infrastructure/terraform.tfstate.backup
+infrastructure/.terraform.tfstate.lock.info
 infrastructure/.terraform
 .vscode
 .devcontainer
@@ -152,3 +153,4 @@ infrastructure/na_variables.tfvars
 **/opt/
 **/temp/
 **tfstate
+infrastructure/build*

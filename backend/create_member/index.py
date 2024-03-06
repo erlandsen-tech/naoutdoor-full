@@ -10,9 +10,8 @@ def lambda_handler(event, context):
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
     try:
-        print("received event:")
+        logger.debug("Received event: %s", event)
         body = json.loads(event["body"])  # Parse the body into a Python dictionary
-        print(body)
         recaptcha_response = body["recaptchaValue"]
         homeGroup = body["homeGroup"]  # Get the homegroup value from the request body
         cleanDate = body["cleanDate"]  # Get the cleandate value from the request body
@@ -34,7 +33,7 @@ def lambda_handler(event, context):
                 "headers": {
                     "Access-Control-Allow-Headers": "*",
                     "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+                    "Access-Control-Allow-Methods": "OPTIONS,POST",
                 },
                 "body": json.dumps("reCAPTCHA validation failed"),
             }
@@ -56,9 +55,18 @@ def lambda_handler(event, context):
             "headers": {
                 "Access-Control-Allow-Headers": "*",
                 "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+                "Access-Control-Allow-Methods": "OPTIONS,POST",
             },
             "body": json.dumps("Write successfull!"),
         }
     except Exception as e:
         logger.error("Error occurred: %s", e)
+        return {
+            "statusCode": 500,
+            "headers": {
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "OPTIONS,POST",
+            },
+            "body": json.dumps(str(e))
+    }

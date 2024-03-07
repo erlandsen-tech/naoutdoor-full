@@ -42,6 +42,7 @@ def lambda_handler(event, context):
                 "total_days": total_days,
                 "country_stats": country_stats,
                 "members_total": members_total,
+                "average_days": total_days / members_total if members_total > 0 else 0,
             })
         }
     except Exception as e:

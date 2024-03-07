@@ -1,22 +1,23 @@
 import React, {useEffect, useState} from "react";
-import JsonView from 'react18-json-view'
-import {Pie} from 'react-chartjs-2'
-import { ArcElement, Chart } from 'chart.js';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import ListGroup from 'react-bootstrap/ListGroup';
+
+
 import 'react18-json-view/src/style.css'
 import axios from 'axios';
 
-Chart.register(ArcElement);
+const cardStyle = {margin: "0"};
+
+const textStyle = {fontSize: "1.2rem", fontWeight: "bold"};
+
 
 function Analytics() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    // Edit this as per your needs.
-    const COLORS = [
-        '#FF6384', '#36A2EB', '#FFCE56', '#E7E9ED', '#2FDE00', '#40E0D0', '#3C40C6', '#0FBCF9',
-        '#DFFF00', '#FFBF00', '#FF7F50', '#DE3163', '#9FE2BF', '#40E0D0', '#6495ED', '#CCCCFF',
-        '#1C2833', '#8395A7', '#BDC581', '#05C46B', '#ffa6b7', '#6B4226', '#0652DD', '#9980FA'
-    ];
+    // Edit this as per your needs
     useEffect(() => {
         axios.get("https://q6dbqs0q30.execute-api.eu-north-1.amazonaws.com/listMembers")
             .then(response => {
@@ -32,50 +33,58 @@ function Analytics() {
     if (isLoading) {
         return <div>Loading...</div>;
     }
-
-    // Create separate arrays for labels and data
-    const countryNames = Object.keys(data.country_stats);
-    const countryData = Object.values(data.country_stats).map(value => value.total_days);
-
-    const pieData = {
-        labels: countryNames,
-        datasets: [
-            {
-                data: countryData,
-                backgroundColor: COLORS,
-                hoverBackgroundColor: COLORS
-            }
-        ]
-    };
-
-    const options = {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: true
-            },
-            tooltip: {
-                callbacks: {
-                    // Return first character of the country name
-                    title: (context) => {
-                        const index = context[0].dataIndex;
-                        return countryNames[index].charAt(0);
-                    }
-                }
-            }
-        }
-    };
-
     return (
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh'}}>
-            <Pie data={pieData} options={options} />
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh'
+        }}>
+            <Row xs={1} md={2} lg={4} className="g-1">
+                <Col>
+                    <Card style={cardStyle}>
+                        <Card.Body>
+                            <Card.Title as={"h5"}>Just for Today</Card.Title>
+                            <Card.Text style={textStyle}>{data.total_days} days</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
 
-            <JsonView src={{
-                TotalDays: data.total_days,
-                MembersTotal: data.members_total,
-                AverageDays: data.average_days
-            }}/>
+                <Col>
+                    <Card style={cardStyle}>
+                        <Card.Body>
+                            <Card.Title as={"h5"}>Miracles</Card.Title>
+                            <Card.Text style={textStyle}>{data.members_total} addicts</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={cardStyle}>
+                        <Card.Body>
+                            <Card.Title>Average Recovery</Card.Title>
+                            <Card.Text style={textStyle}>{(data.average_days / 365.3).toFixed(2)} years</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card style={cardStyle}>
+                        <Card.Body>
+                            <Card.Title as={"h5"}>Countries Represented</Card.Title>
+                            <ListGroup variant="flush">
+                                {
+                                    Object.keys(data.country_stats).map((key, i) => (
+                                        <ListGroup.Item key={i}>{key}</ListGroup.Item>
+                                    ))
+                                }
+                            </ListGroup> </Card.Body>
+                    </Card>
+                </Col>
+
+
+            </Row>
         </div>
     );
 }
+
 export default Analytics;

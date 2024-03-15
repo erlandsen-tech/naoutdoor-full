@@ -64,15 +64,7 @@ function Analytics() {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Card style={{...cardStyle, maxHeight: '10vh', overflowY: 'auto'}}>
-                        <Card.Body>
-                            <Card.Title as={"h5"}>Per demanded a list of homegroups:</Card.Title>
-                            <ListGroup variant="flush">
-                                {Object.values(data.home_groups).map((item, i) => (
-                                    <ListGroup.Item key={i}>{item}</ListGroup.Item>))}
-                            </ListGroup>
-                        </Card.Body>
-                    </Card>
+
                     <Col>
                         <Card style={cardStyle}>
                             <Card.Body>
@@ -83,6 +75,15 @@ function Analytics() {
                                 </ListGroup> </Card.Body>
                         </Card>
                     </Col>
+                    <Card style={{...cardStyle, maxHeight: '10vh', overflowY: 'auto'}}>
+                        <Card.Body>
+                            <Card.Title as={"h5"}>Per demanded a list of homegroups:</Card.Title>
+                            <ListGroup variant="flush">
+                                {Object.values(data.home_groups).map((item, i) => (
+                                    <ListGroup.Item key={i}>{item}</ListGroup.Item>))}
+                            </ListGroup>
+                        </Card.Body>
+                    </Card>
 
 
                 </Row>

@@ -15,12 +15,16 @@ def lambda_handler(event, context):
         total_days = 0
         members_total = len(items)
         country_stats = {}
+        home_groups = []
 
         for item in items:
             country = item.get("Country", "Unknown")
+            home_group = item.get("HomeGroup", "Unknown")
             clean_date = datetime.strptime(item["CleanDate"], "%d-%m-%Y")
             days_since_clean = (datetime.now() - clean_date).days
             item["DaysSinceClean"] = days_since_clean
+            if home_group not in home_groups:
+                home_groups.append(home_group)
             if country not in country_stats:
                 country_stats[country] = {
                     "total_days": days_since_clean,
@@ -42,6 +46,7 @@ def lambda_handler(event, context):
                 "total_days": total_days,
                 "country_stats": country_stats,
                 "members_total": members_total,
+                "home_groups": home_groups,
                 "average_days": total_days / members_total if members_total > 0 else 0,
             })
         }

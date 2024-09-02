@@ -7,13 +7,13 @@ const Meetings = () => {
                 <h1 className="text-center">Program Bike 2 Basic</h1>
                 <p className="text-center">Sted: Trysil Hyttegrend</p>
                 <div className="mt-4">
-                    <h3>Freadg 13.09</h3>
+                    <h3>Fredag 13.09</h3>
                     <ul>
                         <li>20:00 Kveldsmøte</li>
                     </ul>
                 </div>
                 <div className="mt-4">
-                    <h3>Lørday 14.09</h3>
+                    <h3>Lørdag 14.09</h3>
                     <ul>
                         <li>09:00 Morgenmøte</li>
                         <li>18:00 Grilling</li>
